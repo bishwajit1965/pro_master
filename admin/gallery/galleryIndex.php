@@ -109,7 +109,6 @@
                                         <a class="btn btn-xs btn-primary" href="editGallery.php?edit_id=<?php echo $result->id; ?>"><i class="fa fa-pencil"></i> Edit</a>
 
                                         <a class="btn btn-xs btn-danger" href="galleryIndex.php?delete_id=<?php echo $result->id; ?>" onClick="return confirm('Do you really want to delete this data? If deleted it is lost for ever !!!');"> <i class="fa fa-trash"></i> Delete</a>
-                                         <a class="btn btn-xs btn-primary" href="editGallery.php?edit_id=<?php echo $result->id; ?>"><i class="fa fa-eye"></i> View</a>
                                         <?php
                                     } else { ?>
                                     <a class="btn btn-xs btn-primary" href="editGallery.php?edit_id=<?php echo $result->id; ?>"><i class="fa fa-eye"></i> View</a><?php
