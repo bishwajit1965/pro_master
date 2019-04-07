@@ -216,6 +216,7 @@ class User
     {
         session_destroy();
         $_SESSION['userSession'] = false;
+        // Wil destroy ookie data
         // if (isset($_COOKIE['userEmail']) && isset($_COOKIE[ 'userPass'])) {
         //     setcookie('userEmail', '', time() - (86400 * 30), "/");
         //     setcookie('userPass', '', time() - (86400 * 30), "/");
