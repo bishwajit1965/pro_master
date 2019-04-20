@@ -11,7 +11,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Add photo to gallery
+                Add profile data
                 <small>it all starts here</small>
             </h1>
             <ol class="breadcrumb">
@@ -40,14 +40,14 @@
                     <!-- Code below -->
                     <div class="col-sm-6 col-sm-offset-3">
                         <?php
-                        use Codecourse\Repositories\Gallery as Gallery;
+                        use Codecourse\Repositories\Profile as Profile;
 
-$gallery = new Gallery();
+$profile = new Profile();
 
                         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             if (isset($_POST['btn-insert'])) {
-                                $name = $_POST['name'];
-                                $description = $_POST['description'];
+                                $about_me = $_POST['about_me'];
+                                $pro_social = $_POST['pro_social'];
                                 $sess_id = $_POST['userID'];
                                 $permitted    = ['jpg', 'jpeg', 'png', 'gif'];
                                 $file_name    = $_FILES['photo']['name'];
@@ -61,23 +61,23 @@ $gallery = new Gallery();
 
                                 if (!empty($file_name)) {
                                     $fields = [
-                                        'name' => $name,
-                                        'description' => $description,
+                                        'about_me' => $about_me,
+                                        'pro_social' => $pro_social,
                                         'photo' => $photo,
                                         'userID' => $sess_id
                                     ];
-                                    if (!empty($name) && !empty($description)) {
-                                        $name = filter_var($name, FILTER_SANITIZE_STRING);
-                                        $description = filter_var($description, FILTER_SANITIZE_STRING);
+                                    if (!empty($about_me) && !empty($pro_social)) {
+                                        $about_me = filter_var($about_me, FILTER_SANITIZE_STRING);
+                                        $pro_social = filter_var($pro_social, FILTER_SANITIZE_STRING);
                                     }
-                                    if (empty($_POST['name'])) {
+                                    if (empty($_POST['about_me'])) {
                                         echo '<div class="alert alert-danger alert-dismissible " role="alert">
                                         <strong> SORRY !</strong> Name field was left blank !!!
                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                         </div>';
-                                    } elseif (empty($_POST['description'])) {
+                                    } elseif (empty($_POST['pro_social'])) {
                                         echo '<div class="alert alert-danger alert-dismissible " role="alert">
                                         <strong> SORRY !</strong> Description field was left blank !!!
                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -106,52 +106,68 @@ $gallery = new Gallery();
                                         </strong>&nbsp &nbsp
                                         </div>';
                                     } else {
-                                        // Will store data in database with picture
-                                        $gallery->store($fields);
-                                        move_uploaded_file($file_temp, $photo);
+                                        if ($profile->dataExists() !== false) {
+                                            // Will store data in database with picture
+                                            $profile->store($fields);
+                                            move_uploaded_file($file_temp, $photo);
+                                        }
                                     }
                                 } else {
                                     $fields = [
-                                        'name' => $name,
-                                        'description' => $description,
+                                        'about_me' => $about_me,
+                                        'pro_social' => $pro_social,
                                         'userID' => $sess_id
                                     ];
                                     if (!empty($name) && !empty($description)) {
                                         $name = filter_var($name, FILTER_SANITIZE_STRING);
                                         $description = filter_var($description, FILTER_SANITIZE_STRING);
                                     }
-                                    if (empty($_POST['name'])) {
+                                    if (empty($_POST['about_me'])) {
                                         echo '<div class="alert alert-danger alert-dismissible " role="alert">
-                                    <strong> SORRY !</strong> Name field was left blank !!!
+                                    <strong> SORRY !</strong> About me field was left blank !!!
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                     </div>';
-                                    } elseif (empty($_POST['description'])) {
+                                    } elseif (empty($_POST['pro_social'])) {
                                         echo '<div class="alert alert-danger alert-dismissible " role="alert">
-                                    <strong> SORRY !</strong> Description field was left blank !!!
+                                    <strong> SORRY !</strong> Social site field was left blank !!!
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                     </div>';
                                     } else {
-                                        // Will store data in database without picture
-                                        $gallery->store($fields);
+                                        // If one profile data exists no data will be inserted
+                                        if ($profile->dataExists() !== false) {
+                                            // Will store data in database without picture
+                                            $profile->store($fields);
+                                        }
                                     }
                                 }
                             }
                         }
                         ?>
-
+                        <!-- If data is alreadt uploaded , it will alert a message -->
+                        <?php
+                        if (isset($_GET['profileDataExists']) && isset($_GET['profileDataExists']) == 1) {
+                            echo '<div class="alert alert-danger alert-dismissible " role="alert">
+                            <strong> SORRY !</strong> Profile data is already inserted !!!
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>';
+                        }
+                        ?>
                         <form action="" method="post" enctype="multipart/form-data">
                             <div class="form-group">
-                                <label for="name"> Name:</label>
-                                <input type="text" name="name" class="form-control" placeholder="Insert name....">
+                                <label for="name"> About me:</label>
+                                <input type="text" name="about_me" class="form-control"
+                                    placeholder="Insert about me data....">
                             </div>
                             <div class="form-group">
-                                <label for="name"> Description:</label>
-                                <input type="text" name="description" class="form-control"
-                                    placeholder="Insert description....">
+                                <label for="name"> Social:</label>
+                                <input type="text" name="pro_social" class="form-control"
+                                    placeholder="Insert social link data....">
                             </div>
                             <div class="form-group">
                                 <label for="photo">Photo:</label>
@@ -164,8 +180,8 @@ $gallery = new Gallery();
                             <button type="submit" name="btn-insert" class="btn btn-sm btn-primary">
                                 <i class="fa fa-upload"></i> Insert</button>
 
-                            <a href="galleryIndex.php" class="btn btn-sm btn-warning">
-                                <i class="fa fa-fast-backward"></i> Gallery Index</a>
+                            <a href="profileIndex.php" class="btn btn-sm btn-warning">
+                                <i class="fa fa-fast-backward"></i> Profile Index</a>
                         </form>
                     </div>
                     <!-- Code above -->

@@ -23,10 +23,30 @@ class Student
     }
 
     // Store student data
-    public function store($roll, $name, $mother, $father, $gpa, $blood, $phone, $preAddress,
-        $perAddress, $uploaded_image, $class, $s_group, $ban, $eng, $ict, $optSubOne,
-        $optSubTwo, $optSubThree, $optSubFour, $stipend, $status, $session)
-    {
+    public function store(
+        $roll,
+        $name,
+        $mother,
+        $father,
+        $gpa,
+        $blood,
+        $phone,
+        $preAddress,
+        $perAddress,
+        $uploaded_image,
+        $class,
+        $s_group,
+        $ban,
+        $eng,
+        $ict,
+        $optSubOne,
+        $optSubTwo,
+        $optSubThree,
+        $optSubFour,
+        $stipend,
+        $status,
+        $session
+    ) {
         try {
             $stmt = $this->conn->prepare('INSERT INTO tbl_students(roll, name, mother, father, gpa, blood, phone, preAddress,  perAddress, photo, class, s_group, ban, eng, ict, optSubOne, optSubTwo, optSubThree, optSubFour, stipend, status, session) VALUES(:roll, :name, :mother, :father, :gpa, :blood, :phone, :preAddress, :perAddress,  :uploaded_image, :class, :s_group, :ban, :eng, :ict, :optSubOne, :optSubTwo, :optSubThree, :optSubFour, :stipend, :status, :session)');
             $stmt->bindParam(':roll', $roll);
@@ -65,10 +85,29 @@ class Student
     }
 
     // Store data without photo
-    public function storeWithoutPhoto($roll, $name, $mother, $father, $gpa, $blood, $phone,
-        $preAddress, $perAddress, $class, $s_group, $ban, $eng, $ict, $optSubOne, $optSubTwo,
-        $optSubThree, $optSubFour, $stipend, $status, $session)
-    {
+    public function storeWithoutPhoto(
+        $roll,
+        $name,
+        $mother,
+        $father,
+        $gpa,
+        $blood,
+        $phone,
+        $preAddress,
+        $perAddress,
+        $class,
+        $s_group,
+        $ban,
+        $eng,
+        $ict,
+        $optSubOne,
+        $optSubTwo,
+        $optSubThree,
+        $optSubFour,
+        $stipend,
+        $status,
+        $session
+    ) {
         try {
             $stmt = $this->conn->prepare('INSERT INTO tbl_students(roll, name, mother, father, gpa, blood, phone, preAddress,  perAddress, class, s_group, ban, eng, ict, optSubOne, optSubTwo, optSubThree, optSubFour, stipend, status, session) VALUES(:roll, :name, :mother, :father, :gpa, :blood, :phone, :preAddress, :perAddress, :class, :s_group, :ban, :eng, :ict, :optSubOne, :optSubTwo, :optSubThree, :optSubFour, :stipend, :status, :session)');
             $stmt->bindParam(':roll', $roll);
@@ -135,12 +174,12 @@ class Student
     <td>
         <?php
         if (!empty($student->photo)) {
-                    ?>
+            ?>
         <img src="<?php echo $student->photo; ?>" alt="Student's photo" style="width:50px;height:50px;">
         <?php
-                } else {
-                    echo 'No photo';
-                } ?>
+        } else {
+            echo 'No photo';
+        } ?>
     </td>
     <td><?php echo $fm->dateFormat($student->created_at); ?></td>
     <td><?php echo $fm->dateFormat($student->updated_at); ?></td>
@@ -188,12 +227,12 @@ class Student
             <td>
             <?php
             if (!empty($student->photo)) {
-                        ?>
+                ?>
                 <img src="<?php echo $student->photo; ?>" alt="Student's photo" style="width:50px;height:50px;">
                 <?php
-                    } else {
-                        echo 'No photo';
-                    } ?>
+            } else {
+                echo 'No photo';
+            } ?>
             </td>
             <td><?php echo $fm->dateFormat($student->created_at); ?></td>
             <td><?php echo $fm->dateFormat($student->updated_at); ?></td>
@@ -375,11 +414,11 @@ class Student
                             <label for="photo">Photo</label>
                             <?php
                             if (!empty($student->photo)) {
-                            ?>
+                                ?>
                             <img src="<?php echo $student->photo; ?>" alt="Photo" style="width:100%;height:180px; border-radius: 5px;">
                             <?php
                             } else {
-                            ?>
+                                ?>
                             <img src="../images/avatar/avatar.jpg" alt="Photo" style="width:100%;height:180px;border-radius: 5px;">
                             <?php
                             } ?>
@@ -616,14 +655,14 @@ class Student
                             <label for="photo">Photo</label>
                             <?php
                             if (!empty($student->photo)) {
-                            ?>
+                                ?>
                             <img src="<?php echo $student->photo; ?>" alt="Photo" style="width:100%;height:180px; border-radius: 5px;">
                             <?php
                             } else {
-                            ?>
+                                ?>
                             <img src="../images/avatar/avatar.jpg" alt="Photo" style="width:100%;height:180px;border-radius: 5px;">
                             <?php
-                        } ?>
+                            } ?>
                         </div>
                     </div>
                 </div>

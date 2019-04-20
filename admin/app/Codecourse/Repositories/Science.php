@@ -122,9 +122,9 @@ class Science
                                     if ($student->stipend == 0) {
                                         echo 'Non-stipened';
                                     }
-                                    if ($student->stipend == 1) {
-                                        echo 'Stipened';
-                                    } ?>
+                    if ($student->stipend == 1) {
+                        echo 'Stipened';
+                    } ?>
                                         </option>
                                             <?php
                                             if ($student->stipend == 0) {
@@ -132,11 +132,11 @@ class Science
                                                 <option value="1">Stipened</option>
                                             <?php
                                             }
-                                            if ($student->stipend == 1) {
-                                                ?>
+                    if ($student->stipend == 1) {
+                        ?>
                                                 <option value="0">Non-stipend</option>
                                                 <?php
-                                            } ?>
+                    } ?>
                                     </select>
                                 </div>
                             </div>
@@ -169,8 +169,8 @@ class Science
                                 </div>
                                 <?php
                                 }
-                                if ($student->ban == true) {
-                                    ?>
+                    if ($student->ban == true) {
+                        ?>
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="form-group">
@@ -200,9 +200,9 @@ class Science
                                         </div>
                                     </div>
                                     <?php
-                                    }
-                                    if ($student->ict == true) {
-                                        ?>
+                    }
+                    if ($student->ict == true) {
+                        ?>
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div class="form-group">

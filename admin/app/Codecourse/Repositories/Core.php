@@ -1,16 +1,26 @@
 <?php
-
 namespace Codecourse\Repositories;
 
 use Codecourse\Repositories\Database as Database;
 use PDO;
 use PDOException;
 
-class Profile
+class Core
 {
     // Database connection constructor
     private $conn;
-    private $table ='tbl_profile';
+
+    private $table = null;
+    public function table($table)
+    {
+        $this->table = $table;
+        $this->table = implode(',', $table);
+
+        if (!empty($this->table)) {
+            $this->table = $_GET["$table"];
+            return $this->table;
+        }
+    }
 
     public function __construct()
     {
@@ -18,6 +28,7 @@ class Profile
         $dbConnection = $database->dbConnection();
         $this->conn = $dbConnection;
     }
+
 
     // View Data in Index page
     public function index()
@@ -168,17 +179,6 @@ class Profile
             }
         } catch (PDOException $e) {
             echo $e->getMesssage();
-        }
-    }
-
-    // Check whether the user is logged in or not
-    public function dataExists()
-    {
-        $query = "SELECT * FROM $this->table";
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
-        if ($stmt->rowCount() > 0) {
-            header('Location: ../../admin/profile/addProfile.php?profileDataExists=1');
         }
     }
 }

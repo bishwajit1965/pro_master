@@ -25,7 +25,8 @@
                     <div class="input-group">
                         <input type="text" name="q" class="form-control" placeholder="Search...">
                         <span class="input-group-btn">
-                            <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                            <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i
+                                    class="fa fa-search"></i>
                             </button>
                         </span>
                     </div>
@@ -42,7 +43,8 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="../dashboard/dashboard.php"><i class="fa fa-circle-o"></i> Dashboard Index</a></li>
+                            <li><a href="../dashboard/dashboard.php"><i class="fa fa-circle-o"></i> Dashboard Index</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -54,7 +56,8 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="../students/studentIndex.php"><i class="fa fa-circle-o"></i> Student index</a></li>
+                            <li><a href="../students/studentIndex.php"><i class="fa fa-circle-o"></i> Student index</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -72,13 +75,14 @@
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-files-o"></i>
-                            <span>Admins Options</span>
+                            <span>Profile Options</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="../userAdmins/adminIndex.php"><i class="fa fa-circle-o"></i> Admins index</a></li>
+                            <li><a href="../profie/profileIndex.php"><i class="fa fa-circle-o"></i> Profile
+                            </li>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -90,7 +94,8 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="../gallery/galleryIndex.php"><i class="fa fa-circle-o"></i> Gallery index</a></li>
+                            <li><a href="../gallery/galleryIndex.php"><i class="fa fa-circle-o"></i> Gallery index</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -122,10 +127,12 @@
                         <h3 class="box-title">Title</h3>
 
                         <div class="box-tools pull-right">
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+                                title="Collapse">
                                 <i class="fa fa-minus"></i>
                             </button>
-                            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip"
+                                title="Remove">
                                 <i class="fa fa-times"></i>
                             </button>
                         </div>

@@ -36,69 +36,75 @@ class User
         try {
             // Form validation check
             if (empty($firstName)) {
-                header('Location:../../admin/login/signup.php?fnError');
-                exit;
+                header('Location: ../../admin/login/signup.php?fnError');
+                exit();
             } elseif (strlen($firstName) < 3) {
-                header('Location:../../admin/login/signup.php?fnLenError');
-                exit;
+                header('Location: ../../admin/login/signup.php?fnLenError');
+                exit();
             } elseif (!preg_match("/^[a-zA-Z ]*$/", $firstName)) {
-                header('Location:../../admin/login/signup.php?fnPtnError');
-                exit;
+                header('Location: ../../admin/login/signup.php?fnPtnError');
+                exit();
             } elseif (empty($lastName)) {
-                header('Location:../../admin/login/signup.php?lnError');
-                exit;
+                header('Location: ../../admin/login/signup.php?lnError');
+                exit();
             } elseif (strlen($lastName) < 3) {
-                header('Location:../../admin/login/signup.php?lnLenError');
-                exit;
+                header('Location: ../../admin/login/signup.php?lnLenError');
+                exit();
             } elseif (!preg_match("/^[a-zA-Z ]*$/", $lastName)) {
-                header('Location:../../admin/login/signup.php?lnPtnError');
-                exit;
-            } elseif (empty($txturole)) {
-                header('Location:../../admin/login/signup.php?uRoleError');
-                exit;
+                header('Location: ../../admin/login/signup.php?lnPtnError');
+                exit();
+            }
+            // elseif (empty($txturole)) {
+            //     header('Location: ../../admin/login/signup.php?uRoleError');
+            //     exit();
+            // }
+            elseif (empty($email)) {
+                header('Location: ../../admin/login/signup.php?mailError');
+                exit();
             } elseif (empty($email)) {
                 header('Location:../../admin/login/signup.php?mailError');
-                exit;
-            } elseif (empty($email)) {
-                header('Location:../../admin/login/signup.php?mailError');
-                exit;
+                exit();
             } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                header('Location:../../admin/login/signup.php?mailPtnError');
-                exit;
+                header('Location: ../../admin/login/signup.php?mailPtnError');
+                exit();
             } elseif (empty($upass)) {
-                header('Location:../../admin/login/signup.php?uPassEmptyError');
-                exit;
-            } elseif (!preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{6,12}$/', $upass)) {
-                header('Location:../../admin/login/signup.php?uPassPtnError');
-                exit;
-            } elseif (empty($vupass)) {
-                header('Location:../../admin/login/signup.php?vPassEmptyError');
-                exit;
-            } elseif (!preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{6,12}$/', $vupass)) {
-                header('Location:../../admin/login/signup.php?vuPassPtnError');
-                exit;
+                header("Location: ../../admin/login/signup.php?uPassEmptyError");
+                exit();
             }
-            // Matching two passwwords
-            $password = md5($upass);
-            $verifyPassword = md5($vupass);
-            if ($password == $verifyPassword) {
-                $password = $password;
-            } else {
-                header('Location:../../admin/login/signup.php?passMisMatchError');
-                exit;
-            }
+            //  elseif (!preg_match("/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{6,12}$/", $upass)) {
+            //     header('Location: ../../admin/login/signup.php?uPassPtnError');
+            //     exit();
+            // } elseif (empty($vupass)) {
+            //     header("Location: ../../admin/login/signup.php?vPassEmptyError");
+            //     exit();
+            // }
+            // elseif (!preg_match("/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{6,12}$/", $vupass)) {
+            //     header('Location: ../../admin/login/signup.php?vuPassPtnError');
+            //     exit();
+            // }
+            else {
+                // Matching two passwwords
+                $password = md5($upass);
+                $verifyPassword = md5($vupass);
+                if ($password == $verifyPassword) {
+                    $password = $password;
+                } else {
+                    header('Location: ../../admin/login/signup.php?passMisMatchError');
+                    exit;
+                }
 
-            $stmt = $this->conn->prepare("INSERT INTO $this->table(firstName,lastName,userRole,userEmail,userPass,tokenCode)
+                $stmt = $this->conn->prepare("INSERT INTO $this->table(firstName,lastName,userRole,userEmail,userPass,tokenCode)
             VALUES(:first_name,:last_name,:user_role,:user_mail,:user_pass,:active_code)");
-            $stmt->bindparam(':first_name', $firstName);
-            $stmt->bindparam(':last_name', $lastName);
-            $stmt->bindparam(':user_role', $txturole);
-            $stmt->bindparam(':user_mail', $email);
-            $stmt->bindparam(':user_pass', $password);
-            $stmt->bindparam(':active_code', $code);
-            $stmt->execute();
+                $stmt->bindparam(':first_name', $firstName);
+                $stmt->bindparam(':last_name', $lastName);
+                $stmt->bindparam(':user_role', $txturole);
+                $stmt->bindparam(':user_mail', $email);
+                $stmt->bindparam(':user_pass', $password);
+                $stmt->bindparam(':active_code', $code);
+                $stmt->execute();
 
-            return $stmt;
+                return $stmt;
+            }
         } catch (PDOException $ex) {
             echo $ex->getMessage();
         }
@@ -183,6 +189,19 @@ class User
             return false;
         }
     }
+    // Get logged in user is
+    public function getAdminId()
+    {
+        $stmt = $this->conn->prepare("SELECT userID FROM $this->table WHERE userRole = 0");
+        $stmt->execute();
+        $data = $stmt->fetch(PDO::FETCH_OBJ);
+        if ($stmt->rowCount() == 1) {
+            $userID = $data->userID;
+            return $userID;
+        } else {
+            return false;
+        }
+    }
 
     /* Get email to create role based admin access */
     public function getEditorEmail()
@@ -216,7 +235,7 @@ class User
     {
         session_destroy();
         $_SESSION['userSession'] = false;
-        // Wil destroy ookie data
+        // Wil destroy cookie data
         // if (isset($_COOKIE['userEmail']) && isset($_COOKIE[ 'userPass'])) {
         //     setcookie('userEmail', '', time() - (86400 * 30), "/");
         //     setcookie('userPass', '', time() - (86400 * 30), "/");

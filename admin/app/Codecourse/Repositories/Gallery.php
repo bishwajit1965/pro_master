@@ -133,8 +133,8 @@ class Gallery
             }
             $sql = "";
             $sql.= "UPDATE $this->table SET ".$st;
-             $sql.= " WHERE id = ".$id;
-             $stmt = $this->conn->prepare($sql);
+            $sql.= " WHERE id = ".$id;
+            $stmt = $this->conn->prepare($sql);
             foreach ($fields as $key => $value) {
                 $stmt->bindValue(':'.$key, $value);
             }

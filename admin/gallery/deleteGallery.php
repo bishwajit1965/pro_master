@@ -41,7 +41,7 @@
                     <?php
                     use Codecourse\Repositories\Gallery as Gallery;
 
-                    $gallery = new Gallery();
+$gallery = new Gallery();
                     $query = 'SELECT * FROM tbl_gallery WHERE photo_id = :id';
                     $gallery->deleteView($query);
 

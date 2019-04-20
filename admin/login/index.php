@@ -44,93 +44,90 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Login | Pro_master</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="../bower_components/Ionicons/css/ionicons.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
-    <!-- iCheck -->
-    <link rel="stylesheet" href="../plugins/iCheck/square/blue.css">
-    <!-- Google Font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-    <style>
-    .login-box-body {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        border-radius: 5px;
-        background-color: #52a8ff;
-    }
-    #login-form {
-        color:#edeff0;
-    }
 
-    .login-logo a {
-        text-shadow: 1px 2px 4px #000;
-    }
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Login | Pro_master</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.7 -->
+        <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="../bower_components/Ionicons/css/ionicons.min.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+        <!-- iCheck -->
+        <link rel="stylesheet" href="../plugins/iCheck/square/blue.css">
+        <!-- Google Font -->
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+        <style>
+            body {
+                background-image: url(../images/patterns/pattern13.jpg);
+            }
 
-    .login-logo {
-        margin-bottom: 5px;
-    }
+            .login-box {
+                margin-top: 20px;
+            }
 
-    .login-box {
-        margin-top: 30px;
-    }
+            .login-box-body {
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                border-radius: 5px;
+                background-color: #52a8ff;
+            }
 
-    .hr-color {
-        background-color: #edeff0;
-        height: 2px;
-        border-radius: 5px;
-        margin-top: 5px;
-        margin-bottom: 0px;
-    }
+            .login-logo a {
+                text-shadow: 1px 2px 4px #000;
+            }
 
-    .text-color {
-        color: #edeff0;
-    }
+            .login-logo {
+                margin-bottom: 5px;
+            }
 
-    .text-color a {
-        color: #edeff0;
-    }
+            .hr-color {
+                background-color: #edeff0;
+                height: 2px;
+                border-radius: 5px;
+                margin-top: 5px;
+                margin-bottom: 0px;
+            }
 
-    .text-color a:hover {
-        color: #333;
-        font-size: 16px;
-        font-weight: bold;
-    }
+            .text-color {
+                color: #edeff0;
+            }
 
-    .login-box-message {
-        lor: #FFF;
-        text-align: center;
-    }
+            .text-color a {
+                color: #edeff0;
+            }
 
-    input[type=email],
-    input[type=password],
-    #abc {
-        background-color: #edeff0;
-    }
-    </style>
-</head>
+            .text-color a:hover {
+                color: #333;
+                font-size: 16px;
+                font-weight: bold;
+            }
 
-<body class="hold-transition login-page">
-    <div class="login-box">
-        <!-- /.login-logo -->
-        <div class="login-box-body">
-            <div class="login-logo">
-                <a href="#"><span class="text-color"><b>Project Master</b> Login</a></span>
-                <hr class="hr-color">
-            </div>
-            <div class="text-center text-color">
-                <p>Sign in to start your session</p>
-            </div>
-            <?php
+            .login-box-message {
+                lor: #FFF;
+                text-align: center;
+            }
+        </style>
+    </head>
+
+    <body class="hold-transition login-page">
+        <div class="login-box">
+            <!-- /.login-logo -->
+            <div class="login-box-body">
+                <div class="login-logo">
+                    <a href="#"><span class="text-color"><b>Project Master</b> Login</a></span>
+                    <hr class="hr-color">
+                </div>
+                <div class="text-center text-color">
+                    <p>Sign in to start your session</p>
+                </div>
+                <?php
             // Validation messages
             if (isset($_GET['passwordError'])) {
                 ?>
@@ -165,96 +162,99 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <?php
             }
             ?>
-            <form action="" method="post" id="login-form">
-                <div class="form-group has-feedback">
-                    <input type="email" class="form-control" name="txtemail" id="email" placeholder="Email">
-                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                    <input type="password" class="form-control" name="txtupass" id="password" placeholder="Password">
-                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                </div>
-                <div class="text-center text-color">
-                    <p style="color:#D2D6DE;">Check in the right check boxes below<span style="color:red;font-weight:bold;"> ( Required )</span></p>
-                </div>
-                <div class="form-group has-feedback text-center">
-                    <input type="checkbox" name="userRole" value="0"><span class="text-color"> Admin</span> &nbsp;
-                    <input type="checkbox" name="userRole" value="1"><span class="text-color"> Editor</span> &nbsp;
-                    <input type="checkbox" name="userRole" value="2"><span class="text-color"> Author</span> &nbsp;
-                </div>
+                <form action="" method="post" id="login-form">
+                    <div class="form-group has-feedback">
+                        <input type="email" class="form-control" name="txtemail" id="email" placeholder="Email">
+                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <input type="password" class="form-control" name="txtupass" id="password"
+                            placeholder="Password">
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    </div>
+                    <div class="text-center text-color">
+                        <p style="color:#D2D6DE;">Check in the right check boxes below<span
+                                style="color:red;font-weight:bold;"> ( Required )</span></p>
+                    </div>
+                    <div class="form-group has-feedback text-center">
+                        <input type="checkbox" name="userRole" value="0"><span class="text-color"> Admin</span> &nbsp;
+                        <input type="checkbox" name="userRole" value="1"><span class="text-color"> Editor</span> &nbsp;
+                        <input type="checkbox" name="userRole" value="2"><span class="text-color"> Author</span> &nbsp;
+                    </div>
 
-                <div class="row">
-                    <div class="col-xs-8">
-                        <div class="checkbox icheck">
-                            <label>
-                                <input type="checkbox" name="remember" value="1" <?php echo isset($_COOKIE['userEmail']) ?'checked' : ''; ?>><span class="text-color"> Remember Me</span>
-                            </label>
+                    <div class="row">
+                        <div class="col-xs-8">
+                            <div class="checkbox icheck">
+                                <label>
+                                    <input type="checkbox" name="remember" value="1" <?php echo isset($_COOKIE['userEmail']) ?'checked' : ''; ?>><span
+                                        class="text-color"> Remember Me</span>
+                                </label>
+                            </div>
                         </div>
+                        <!-- /.col -->
+                        <div class="col-xs-4">
+                            <button type="submit" class="btn btn-primary btn-block btn-flat" name="btn-login">
+                                <i class="fa fa-user"></i> Sign In</button>
+                        </div>
+                        <!-- /.col -->
                     </div>
-                    <!-- /.col -->
-                    <div class="col-xs-4">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat" name="btn-login">
-                            <i class="fa fa-user"></i> Sign In</button>
-                    </div>
-                    <!-- /.col -->
+                </form>
+
+                <div class="social-auth-links text-center">
+                    <p class="text-color">- OR -</p>
+
+                    <a href="fb_login.php" class="btn btn-block btn-social btn-facebook btn-flat">
+                        <i class="fa fa-facebook"></i> Sign in using Facebook</a>
+
+                    <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus">
+                        </i> Sign in using Google+</a>
                 </div>
-            </form>
-
-            <div class="social-auth-links text-center">
-                <p class="text-color">- OR -</p>
-
-                <a href="fb_login.php" class="btn btn-block btn-social btn-facebook btn-flat">
-                    <i class="fa fa-facebook"></i> Sign in using Facebook</a>
-
-                <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus">
-                    </i> Sign in using Google+</a>
+                <!-- /.social-auth-links -->
+                <div class="text-center text-color">
+                    <a href="fpass.php">I forgot my password</a><br>
+                    <a href="signup.php">Register a new membership</a>
+                </div>
             </div>
-            <!-- /.social-auth-links -->
-            <div class="text-center text-color">
-                <a href="fpass.php">I forgot my password</a><br>
-                <a href="signup.php">Register a new membership</a>
-            </div>
+            <!-- /.login-box-body -->
         </div>
-        <!-- /.login-box-body -->
-    </div>
-    <!-- /.login-box -->
+        <!-- /.login-box -->
 
-    <!-- jQuery 3 -->
-    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap 3.3.7 -->
-    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- iCheck -->
-    <script src="../plugins/iCheck/icheck.min.js"></script>
-    <?php
-    if (isset($_COOKIE['userEmail']) && isset($_COOKIE['userPass'])) {
-        $email = $_COOKIE['userEmail'];
-        $pass = $_COOKIE['userPass'];
-        echo "
-        <script>
-            document.getElementById('email').value = '$email';
-            document.getElementById('password').value = '$pass';
-        </script>";
-    }
-    ?>
-    <!-- Fade out bootstrap alert messages -->
-    <script type="text/javascript">
-        $(document).ready(function() {
-            window.setTimeout(function() {
-                $(".alert").fadeTo(1000, 0).slideUp(1000, function() {
-                    $(this).remove();
-                });
-            }, 3000);
-        });
-    </script>
-    <script>
-        $(function() {
-            $('input').iCheck({
-                checkboxClass: 'icheckbox_square-blue',
-                radioClass: 'iradio_square-blue',
-                increaseArea: '20%' // optional
+        <!-- jQuery 3 -->
+        <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap 3.3.7 -->
+        <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- iCheck -->
+        <script src="../plugins/iCheck/icheck.min.js"></script>
+        <?php
+        if (isset($_COOKIE['userEmail']) && isset($_COOKIE['userPass'])) {
+            $email = $_COOKIE['userEmail'];
+            $pass = $_COOKIE['userPass'];
+            echo "
+            <script>
+                document.getElementById('email').value = '$email';
+                document.getElementById('password').value = '$pass';
+            </script>";
+        }
+        ?>
+        <!-- Fade out bootstrap alert messages -->
+        <script type="text/javascript">
+            $(document).ready(function() {
+                window.setTimeout(function() {
+                    $(".alert").fadeTo(1000, 0).slideUp(1000, function() {
+                        $(this).remove();
+                    });
+                }, 3000);
             });
-        });
-    </script>
-</body>
+        </script>
+        <script>
+            $(function() {
+                $('input').iCheck({
+                    checkboxClass: 'icheckbox_square-blue',
+                    radioClass: 'iradio_square-blue',
+                    increaseArea: '20%' // optional
+                });
+            });
+        </script>
+    </body>
 
 </html>

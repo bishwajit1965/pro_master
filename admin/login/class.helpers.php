@@ -2,7 +2,6 @@
 
 class helpers
 {
-
     public function dateFormat($date)
     {
         return date('F j, Y, g:i a', strtotime($date));

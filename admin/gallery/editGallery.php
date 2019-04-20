@@ -1,5 +1,3 @@
-<?php
-?>
 <?php include_once '../partials/_head.php'; ?>
 <!-- Site wrapper -->
 <div class="wrapper">
@@ -31,12 +29,12 @@
                     <h3 class="box-title">Title</h3>
 
                     <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse"
-                        data-toggle="tooltip" title="Collapse">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+                            title="Collapse">
                             <i class="fa fa-minus"></i>
                         </button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove"
-                        data-toggle="tooltip" title="Remove"> <i class="fa fa-times"></i>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip"
+                            title="Remove"> <i class="fa fa-times"></i>
                         </button>
                     </div>
                 </div>
@@ -47,8 +45,7 @@
                         <?php
                         use Codecourse\Repositories\Gallery as Gallery;
 
-                        $gallery = new Gallery();
-
+$gallery = new Gallery();
                         // Fetch single data from database to display
                         if (isset($_GET['edit_id'])) {
                             $id = $_GET['edit_id'];
@@ -94,15 +91,16 @@
                                         </div>';
                                     } elseif (in_array($file_ext, $permitted) === false) {
                                         ?>
-                                        <div class="alert alert-danger alert-dismissible" role="alert">
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                            <strong id="strong" #9C0A0A> You can upload only
-                                                <?php echo implode(', ', $permitted); ?> files.
-                                            </strong>&nbsp; &nbsp;
-                                        </div>
-                                        <?php
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <strong id="strong" #9C0A0A> You can upload only
+                                <?php echo implode(', ', $permitted); ?>
+                                files.
+                            </strong>&nbsp; &nbsp;
+                        </div>
+                        <?php
                                     } else {
                                         // Will update database with selected photo
                                         $gallery->update($fields, $id);
@@ -147,11 +145,13 @@
                             <div class="row">
                                 <div class="col-sm-7">
 
-                                    <input type="hidden" name="id" class="form-control" value="<?php echo $result->id; ?>">
+                                    <input type="hidden" name="id" class="form-control"
+                                        value="<?php echo $result->id; ?>">
 
                                     <div class="form-group">
                                         <label for="name"> Name:</label>
-                                        <input type="text" name="name" class="form-control" class="form-control" value="<?php echo $result->name; ?>">
+                                        <input type="text" name="name" class="form-control" class="form-control"
+                                            value="<?php echo $result->name; ?>">
                                     </div>
                                     <div class="form-group">
                                         <label for="photo">Photo:</label>
@@ -159,20 +159,24 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="name"> Description:</label>
-                                        <input type="text" name="description" class="form-control" value="<?php echo $result->description; ?>">
+                                        <input type="text" name="description" class="form-control"
+                                            value="<?php echo $result->description; ?>">
                                     </div>
                                 </div>
                                 <div class="col-sm-5">
                                     <div class="form-group">
                                         <label for="name"> Photo</label>
                                         <?php
-                                        if (empty($result->photo)) { ?>
-                                            <img src="avatar/avatar.png" alt="Alternative Image"
+                                        if (empty($result->photo)) {
+                                            ?>
+                                        <img src="avatar/avatar.png" alt="Alternative Image"
                                             style="height:183px;width:100%;">
-                                            <?php
+                                        <?php
                                         } else {
-                                        ?>
-                                            <img src="<?php echo $result->photo; ?>" class="img-fluid img-thumbnail" alt="Gallery photo" style="height:183px;width:100%;">
+                                            ?>
+                                        <img src="<?php echo $result->photo; ?>"
+                                            class="img-fluid img-thumbnail" alt="Gallery photo"
+                                            style="height:183px;width:100%;">
                                         <?php
                                         }
                                         ?>
@@ -180,15 +184,17 @@
                                 </div>
                             </div>
                             <?php
-                            if ($_SESSION['userEmail'] == $user_home->getEmail()) { ?>
-                                <button type="submit" name="btn-update" class="btn btn-sm btn-primary">
-                                    <i class="fa fa-edit"></i> Update</button>
-                                <a href="galleryIndex.php" class="btn btn-sm btn-warning">
-                                    <i class="fa fa-fast-backward"></i> Gallery Index</a>
+                            if ($_SESSION['userEmail'] == $user_home->getEmail()) {
+                                ?>
+                            <button type="submit" name="btn-update" class="btn btn-sm btn-primary">
+                                <i class="fa fa-edit"></i> Update</button>
+                            <a href="galleryIndex.php" class="btn btn-sm btn-warning">
+                                <i class="fa fa-fast-backward"></i> Gallery Index</a>
                             <?php
-                            } else { ?>
-                                <a href="galleryIndex.php" class="btn btn-sm btn-warning">
-                                    <i class="fa fa-fast-backward"></i> Gallery Index</a>
+                            } else {
+                                ?>
+                            <a href="galleryIndex.php" class="btn btn-sm btn-warning">
+                                <i class="fa fa-fast-backward"></i> Gallery Index</a>
                             <?php
                             }
                             ?>

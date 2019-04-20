@@ -11,7 +11,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-               Delete Profile
+                Delete Profile
                 <small>it all starts here</small>
             </h1>
             <ol class="breadcrumb">
@@ -33,8 +33,8 @@
                             title="Collapse">
                             <i class="fa fa-minus"></i>
                         </button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove"
-                        data-toggle="tooltip" title="Remove"> <i class="fa fa-times"></i>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip"
+                            title="Remove"> <i class="fa fa-times"></i>
                         </button>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                     <?php
                     use Codecourse\Repositories\Profile as Profile;
 
-                    $profile = new Profile();
+$profile = new Profile();
                     $query = 'SELECT * FROM tbl_users WHERE userID = :id';
                     $profile->deleteView($query);
                     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -69,4 +69,5 @@
 <!-- ./wrapper -->
 <?php include_once '../partials/_scripts.php'; ?>
 </body>
+
 </html>

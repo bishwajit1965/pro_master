@@ -14,12 +14,12 @@ if ($reg_user->is_logged_in() != '') {
 if (isset($_POST['btn-signup'])) {
     $firstName = trim($_POST['firstName']);
     $lastName = trim($_POST['lastName']);
-    $txturole = trim($_POST['txturole']);
+    $txturole = trim($_POST['userRole']);
     $email = trim($_POST['txtemail']);
     $upass = trim($_POST['txtpass']);
     $vupass = trim($_POST['vtxtpass']);
     $code = md5(uniqid(rand()));
-    $stmt = $reg_user->runQuery('SELECT * FROM tbl_users WHERE userEmail=:email_id');
+    $stmt = $reg_user->runQuery("SELECT * FROM tbl_users WHERE userEmail=:email_id");
     $stmt->execute(array(':email_id' => $email));
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     if ($stmt->rowCount() > 0) {
@@ -57,89 +57,94 @@ if (isset($_POST['btn-signup'])) {
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Pro_master | Registration Page</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="../bower_components/Ionicons/css/ionicons.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
-    <!-- iCheck -->
-    <link rel="stylesheet" href="../plugins/iCheck/square/blue.css">
-    <!-- Google Font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-    <style>
-        .register-box-body {
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            border-radius: 5px;
-            background-color: #52a8ff;
-        }
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Pro_master | Registration Page</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.7 -->
+        <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="../bower_components/Ionicons/css/ionicons.min.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+        <!-- iCheck -->
+        <link rel="stylesheet" href="../plugins/iCheck/square/blue.css">
+        <!-- Google Font -->
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+        <style>
+            .register-box-body {
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                border-radius: 5px;
+                background-color: #52a8ff;
+            }
 
-        .register-logo a {
-            text-shadow: 1px 2px 4px #000;
-        }
+            .register-logo a {
+                text-shadow: 1px 2px 4px #000;
+            }
 
-        .register-logo {
-            margin-bottom: 5px;
-        }
+            .register-logo {
+                margin-bottom: 5px;
+            }
 
-        .register-box {
-            margin-top: 30px;
-        }
+            body {
+                background-image: url(../images/patterns/pattern13.jpg);
+            }
 
-        .hr-color {
-            background-color: #DDD;
-            height: 2px;
-            border-radius: 5px;
-            margin-top: 5px;
-            margin-bottom: 0px;
-        }
+            .register-box {
+                margin-top: 20px;
+            }
 
-        .text-color {
-            color: #FFF;
-        }
+            .hr-color {
+                background-color: #DDD;
+                height: 2px;
+                border-radius: 5px;
+                margin-top: 5px;
+                margin-bottom: 0px;
+            }
 
-        .text-color a {
-            color: #FFF;
-        }
+            .text-color {
+                color: #FFF;
+            }
 
-        .text-color a:hover {
-            color: #333;
-            font-size: 16px;
-            font-weight: bold;
-        }
+            .text-color a {
+                color: #FFF;
+            }
 
-        .login-box-message {
-            color: #FFF;
-            text-align: center;
-        }
+            .text-color a:hover {
+                color: #333;
+                font-size: 16px;
+                font-weight: bold;
+            }
 
-        input[type=text],
-        input[type=password],
-        #abc {
-            background-color: #DDD;
-        }
-    </style>
-</head>
+            .login-box-message {
+                color: #FFF;
+                text-align: center;
+            }
 
-<body class="hold-transition register-page">
-    <div class="register-box">
-        <div class="register-box-body">
-            <div class="register-logo">
-                <a href="#"><span class="text-color"><b>Proj Master</b> Register</span></a>
-                <hr class="hr-color">
-            </div>
-            <div class="text-center text-color">
-                <p>Register a new membership</p>
-            </div>
-            <?php
+            input[type=text],
+            input[type=password],
+            #abc {
+                background-color: #DDD;
+            }
+        </style>
+    </head>
+
+    <body class="hold-transition ">
+        <div class="register-box">
+            <div class="register-box-body">
+                <div class="register-logo">
+                    <a href="#"><span class="text-color"><b>Proj Master</b> Register</span></a>
+                    <hr class="hr-color">
+                </div>
+                <div class="text-center text-color">
+                    <p>Register a new membership</p>
+                </div>
+                <?php
             if (isset($msg)) {
                 echo $msg;
             }
@@ -302,54 +307,56 @@ if (isset($_POST['btn-signup'])) {
                 echo $error;
             }
             ?>
-            <form action="" method="post">
-                <div class="form-group has-feedback">
-                    <input type="text" name="firstName" class="form-control" placeholder="First name">
-                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                    <input type="text" name="lastName" class="form-control" placeholder="Last name">
-                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                    <select id="abc" name="txturole" class="form-control">
-                        <option>Select User Role</option>
-                        <option value="0">Admin</option>
-                        <option value="1">Editor</option>
-                        <option value="2">Author</option>
-                    </select>
-                </div>
-                <div class="form-group has-feedback">
-                    <input type="text" name="txtemail" class="form-control" placeholder="Email">
-                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                    <input type="password" name="txtpass" class="form-control" placeholder="Password (special symbols, letters, numbers)">
-                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                    <input type="password" name="vtxtpass" class="form-control" placeholder="Retype password (special symbols, letters, numbers)">
-                    <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
-                </div>
-                <div class="row">
-                    <div class="col-sm-8">
-                        <div class="checkbox icheck pull-left text-color">
-                            <label>
-                                <input type="checkbox"> I agree to the &nbsp;<a href="terms.php">
-                                    <i class="fa fa- fa-list"></i> Terms</a>
-                            </label>
+                <form action="" method="post">
+                    <div class="form-group has-feedback">
+                        <input type="text" name="firstName" class="form-control" placeholder="First name">
+                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <input type="text" name="lastName" class="form-control" placeholder="Last name">
+                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <select id="abc" name="userRole" class="form-control">
+                            <option>Select User Role</option>
+                            <option value="0"> Admin</option>
+                            <option value="1"> Editor</option>
+                            <option value="2"> Author</option>
+                        </select>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <input type="text" name="txtemail" class="form-control" placeholder="Email">
+                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <input type="password" name="txtpass" class="form-control"
+                            placeholder="Password (special symbols, letters, numbers)">
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <input type="password" name="vtxtpass" class="form-control"
+                            placeholder="Retype password (special symbols, letters, numbers)">
+                        <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="checkbox icheck pull-left text-color">
+                                <label>
+                                    <input type="checkbox"> I agree to the &nbsp;<a href="terms.php">
+                                        <i class="fa fa- fa-list"></i> Terms</a>
+                                </label>
+                            </div>
                         </div>
+                        <!-- /.col -->
+                        <div class="col-sm-4">
+                            <button type="submit" class="btn btn-primary btn-block btn-flat" name="btn-signup">
+                                <i class="fa fa-user"></i> Register</button>
+                        </div>
+                        <!-- /.col -->
                     </div>
-                    <!-- /.col -->
-                    <div class="col-sm-4">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat" name="btn-signup">
-                            <i class="fa fa-user"></i> Register</button>
-                    </div>
-                    <!-- /.col -->
-                </div>
-            </form>
+                </form>
 
-            <!-- <div class="social-auth-links text-center">
+                <!-- <div class="social-auth-links text-center">
             <p>- OR -</p>
             <a href="#" class="btn btn-block btn-social btn-facebook btn-flat "><i class="fa fa-facebook"></i> Sign up using
                 Facebook</a>
@@ -357,39 +364,40 @@ if (isset($_POST['btn-signup'])) {
                 Google+</a>
             </div> -->
 
-            <div class="text-center text-color">
-                <a href="index.php" class="text-center"><strong> Already have a membership ! Click to log in.</strong></a>
+                <div class="text-center text-color">
+                    <a href="index.php" class="text-center"><strong> Already have a membership ! Click to log
+                            in.</strong></a>
+                </div>
             </div>
+            <!-- /.form-box -->
         </div>
-        <!-- /.form-box -->
-    </div>
-    <!-- /.register-box -->
+        <!-- /.register-box -->
 
-    <!-- jQuery 3 -->
-    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap 3.3.7 -->
-    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- iCheck -->
-    <script src="../plugins/iCheck/icheck.min.js"></script>
-    <!-- Fade out bootstrap alert messages -->
-    <script type="text/javascript">
-        $(document).ready(function() {
-            window.setTimeout(function() {
-                $(".alert").fadeTo(1000, 0).slideUp(1000, function() {
-                    $(this).remove();
-                });
-            }, 3000);
-        });
-    </script>
-    <script>
-        $(function() {
-            $('input').iCheck({
-                checkboxClass: 'icheckbox_square-blue',
-                radioClass: 'iradio_square-blue',
-                increaseArea: '20%' // optional
+        <!-- jQuery 3 -->
+        <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap 3.3.7 -->
+        <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- iCheck -->
+        <script src="../plugins/iCheck/icheck.min.js"></script>
+        <!-- Fade out bootstrap alert messages -->
+        <script type="text/javascript">
+            $(document).ready(function() {
+                window.setTimeout(function() {
+                    $(".alert").fadeTo(1000, 0).slideUp(1000, function() {
+                        $(this).remove();
+                    });
+                }, 3000);
             });
-        });
-    </script>
-</body>
+        </script>
+        <script>
+            $(function() {
+                $('input').iCheck({
+                    checkboxClass: 'icheckbox_square-blue',
+                    radioClass: 'iradio_square-blue',
+                    increaseArea: '20%' // optional
+                });
+            });
+        </script>
+    </body>
 
 </html>

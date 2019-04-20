@@ -60,9 +60,9 @@
                     ?>
                     <?php
                     use Codecourse\Repositories\Gallery as Gallery;
-                    use Codecourse\Repositories\Helpers as Helper;
+use Codecourse\Repositories\Helpers as Helper;
 
-                    $gallery = new Gallery();
+$gallery = new Gallery();
                     $helper = new Helper;
                     if (isset($_GET['delete_id'])) {
                         $id = $_GET['delete_id'];
@@ -85,35 +85,38 @@
                             $galleryRows = $gallery->index();
                             if (!empty($galleryRows)) {
                                 $id = 1;
-                                foreach ($galleryRows as $result) { ?>
+                                foreach ($galleryRows as $result) {
+                                    ?>
                             <tr>
                                 <td><?php echo $id++; ?></td>
                                 <td><?php echo $result->name; ?></td>
                                 <td>
                                     <?php
-                                    if (empty($result->photo)) { ?>
+                                    if (empty($result->photo)) {
+                                        ?>
                                     <img src="avatar/avatar.png" alt="Alternative Image" style="width:130px;height:80px;">
                                     <?php
-                                    } else { ?>
+                                    } else {
+                                        ?>
                                         <img src="<?php echo $result->photo; ?>" class="img-thumbnail" style="width:130px;height:80px;" alt="Gallery Photo">
                                         <?php
-                                    }
-                                    ?>
+                                    } ?>
                                 </td>
                                 <td><?php echo $result->description; ?></td>
                                 <td><?php echo $helper->dateFormat($result->created_at); ?></td>
                                 <td>
                                     <?php
-                                    if ($_SESSION['userEmail'] == $user_home->getEmail()) { ?>
+                                    if ($_SESSION['userEmail'] == $user_home->getEmail()) {
+                                        ?>
 
                                         <a class="btn btn-xs btn-primary" href="editGallery.php?edit_id=<?php echo $result->id; ?>"><i class="fa fa-pencil"></i> Edit</a>
 
                                         <a class="btn btn-xs btn-danger" href="galleryIndex.php?delete_id=<?php echo $result->id; ?>" onClick="return confirm('Do you really want to delete this data? If deleted it is lost for ever !!!');"> <i class="fa fa-trash"></i> Delete</a>
                                         <?php
-                                    } else { ?>
+                                    } else {
+                                        ?>
                                     <a class="btn btn-xs btn-primary" href="editGallery.php?edit_id=<?php echo $result->id; ?>"><i class="fa fa-eye"></i> View</a><?php
-                                    }
-                                    ?>
+                                    } ?>
                                 </td>
                             </tr>
                             <?php

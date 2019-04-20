@@ -1,84 +1,93 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Verify | Pro_master</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="../bower_components/Ionicons/css/ionicons.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
-    <!-- iCheck -->
-    <link rel="stylesheet" href="../plugins/iCheck/square/blue.css">
-    <!-- Google Font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-    <style>
-        .login-box-body {
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            border-radius: 5px;
-            background-color: #52a8ff;
-        }
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Verify | Pro_master</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.7 -->
+        <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="../bower_components/Ionicons/css/ionicons.min.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+        <!-- iCheck -->
+        <link rel="stylesheet" href="../plugins/iCheck/square/blue.css">
+        <!-- Google Font -->
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+        <style>
+            .login-box-body {
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                border-radius: 5px;
+                background-color: #52a8ff;
+            }
 
-        .login-logo a {
-            text-shadow: 1px 2px 4px #000;
-        }
+            body {
+                background-image: url(../images/patterns/pattern13.jpg);
+            }
 
-        .login-logo {
-            margin-bottom: 5px;
-        }
+            .login-box {
+                margin-top: 20px;
+            }
 
-        .login-box {
-            margin-top: 30px;
-        }
+            .login-logo a {
+                text-shadow: 1px 2px 4px #000;
+            }
 
-        .hr-color {
-            background-color: #DDD;
-            height: 2px;
-            border-radius: 5px;
-            margin-top: 5px;
-            margin-bottom: 0px;
-        }
+            .login-logo {
+                margin-bottom: 5px;
+            }
 
-        .text-color {
-            color: #FFF;
-        }
+            .login-box {
+                margin-top: 30px;
+            }
 
-        .text-color a {
-            color: #FFF;
-        }
+            .hr-color {
+                background-color: #DDD;
+                height: 2px;
+                border-radius: 5px;
+                margin-top: 5px;
+                margin-bottom: 0px;
+            }
 
-        .text-color a:hover {
-            color: #333;
-            font-size: 16px;
-            font-weight: bold;
-        }
+            .text-color {
+                color: #FFF;
+            }
 
-        .login-box-message {
-            color: #FFF;
-            text-align: center;
-        }
-    </style>
-</head>
+            .text-color a {
+                color: #FFF;
+            }
 
-<body class="hold-transition login-page">
-    <div class="login-box">
-        <!-- /.login-logo -->
-        <div class="login-box-body">
-            <div class="login-logo">
-                <a href="#"><span class="text-color"><b>Project Master</b> Account Verification</a></span>
-                <hr class="hr-color">
-            </div>
-            <div class="text-center text-color">
-                <h4>Wait for a few secnds to be redirected !!!</h4>
-            </div>
-            <?php
+            .text-color a:hover {
+                color: #333;
+                font-size: 16px;
+                font-weight: bold;
+            }
+
+            .login-box-message {
+                color: #FFF;
+                text-align: center;
+            }
+        </style>
+    </head>
+
+    <body class="hold-transition login-page">
+        <div class="login-box">
+            <!-- /.login-logo -->
+            <div class="login-box-body">
+                <div class="login-logo">
+                    <a href="#"><span class="text-color"><b>Project Master</b> Account Verification</a></span>
+                    <hr class="hr-color">
+                </div>
+                <div class="text-center text-color">
+                    <h4>Wait for a few secnds to be redirected !!!</h4>
+                </div>
+                <?php
             require_once '../app/start.php';
 
             use Codecourse\Repositories\User as User;
@@ -126,29 +135,29 @@
                     header('Refresh:8, signup.php');
                 }
             } ?>
-            <?php
+                <?php
             if (isset($msg)) {
                 echo $msg;
             } ?>
+            </div>
+            <!-- /.login-box-body -->
         </div>
-        <!-- /.login-box-body -->
-    </div>
-    <!-- /.login-box -->
-    <!-- jQuery 3 -->
-    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap 3.3.7 -->
-    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- iCheck -->
-    <script src="../plugins/iCheck/icheck.min.js"></script>
-    <script>
-        $(function() {
-            $('input').iCheck({
-                checkboxClass: 'icheckbox_square-blue',
-                radioClass: 'iradio_square-blue',
-                increaseArea: '20%' // optional
+        <!-- /.login-box -->
+        <!-- jQuery 3 -->
+        <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap 3.3.7 -->
+        <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- iCheck -->
+        <script src="../plugins/iCheck/icheck.min.js"></script>
+        <script>
+            $(function() {
+                $('input').iCheck({
+                    checkboxClass: 'icheckbox_square-blue',
+                    radioClass: 'iradio_square-blue',
+                    increaseArea: '20%' // optional
+                });
             });
-        });
-    </script>
-</body>
+        </script>
+    </body>
 
 </html>
