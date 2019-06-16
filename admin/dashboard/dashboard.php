@@ -46,11 +46,11 @@
                     // Will load vendor autoloader
                     require_once('../app/start.php');
 
-                    use Codecourse\Repositories\UserRepository as UserRepository;
-                    use Codecourse\Repositories\User as User;
+                    // use Codecourse\Repositories\UserRepository as UserRepository;
+                    // use Codecourse\Repositories\User as User;
 
-                    $db = new UserRepository();
-                    $user = new User();
+                    // $db = new UserRepository();
+                    // $user = new User();
 
                     ?>
                 </div>

@@ -14,7 +14,6 @@ if ($reg_user->is_logged_in() != '') {
 if (isset($_POST['btn-signup'])) {
     $firstName = trim($_POST['firstName']);
     $lastName = trim($_POST['lastName']);
-    $txturole = trim($_POST['userRole']);
     $email = trim($_POST['txtemail']);
     $upass = trim($_POST['txtpass']);
     $vupass = trim($_POST['vtxtpass']);
@@ -28,7 +27,7 @@ if (isset($_POST['btn-signup'])) {
 			<strong>SORRY !</strong> email allready exists.Try another.
 		</div>";
     } else {
-        if ($reg_user->register($firstName, $lastName, $txturole, $email, $upass, $vupass, $code)) {
+        if ($reg_user->register($firstName, $lastName, $email, $upass, $vupass, $code)) {
             $id = $reg_user->lasdID();
             $key = base64_encode($id);
             $id = $key;
@@ -134,7 +133,7 @@ if (isset($_POST['btn-signup'])) {
         </style>
     </head>
 
-    <body class="hold-transition ">
+    <body class="hold-transition register-page">
         <div class="register-box">
             <div class="register-box-body">
                 <div class="register-logo">
@@ -145,168 +144,158 @@ if (isset($_POST['btn-signup'])) {
                     <p>Register a new membership</p>
                 </div>
                 <?php
-            if (isset($msg)) {
-                echo $msg;
-            }
-            if (isset($_GET['fnError'])) {
-                $error =
-                    '<div class ="alert alert-danger alert-dismissible" role="alert" >
-                <strong> SORRY !</strong> First name was left empty !
-                <button type = "button" class="close" data-dismiss="alert" aria-label = "Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>';
-                echo $error;
-            }
-            if (isset($_GET['fnLenError'])) {
-                $error =
-                    '<div class ="alert alert-danger alert-dismissible" role="alert" >
-                <strong> SORRY !</strong> First name needs at least 3 chars !
-                <button type = "button" class="close" data-dismiss="alert" aria-label = "Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>';
-                echo $error;
-            }
-            if (isset($_GET['fnPtnError'])) {
-                $error =
-                    '<div class ="alert alert-danger alert-dismissible" role="alert" >
-                <strong> SORRY !</strong> First name spaces & letters only !
-                <button type = "button" class="close" data-dismiss="alert" aria-label = "Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>';
-                echo $error;
-            }
-            if (isset($_GET['lnError'])) {
-                $error =
-                    '<div class ="alert alert-danger alert-dismissible" role="alert" >
-                <strong> SORRY !</strong> Last name was left empty.
-                <button type = "button" class="close" data-dismiss="alert" aria-label = "Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>';
-
-                echo $error;
-            }
-            if (isset($_GET['lnLenError'])) {
-                $error =
-                    '<div class ="alert alert-danger alert-dismissible" role="alert" >
-                <strong> SORRY !</strong> Last name needs at least 3 chars !
-                <button type = "button" class="close" data-dismiss="alert" aria-label = "Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>';
-                echo $error;
-            }
-            if (isset($_GET['lnPtnError'])) {
-                $error =
-                    '<div class ="alert alert-danger alert-dismissible" role="alert" >
-                <strong> SORRY !</strong>  Last name spaces & letters only !
-                <button type = "button" class="close" data-dismiss="alert" aria-label = "Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>';
-                echo $error;
-            }
-
-            if (isset($_GET['uRoleError'])) {
-                $error =
-                    '<div class ="alert alert-danger alert-dismissible" role="alert" >
-                    <strong> SORRY !</strong> User role field was left empty !
-                    <button type = "button" class="close" data-dismiss="alert" aria-label ="Close">
+                if (isset($msg)) {
+                    echo $msg;
+                }
+                if (isset($_GET['fnError'])) {
+                    $error =
+                        '<div class ="alert alert-danger alert-dismissible" role="alert" >
+                    <strong> SORRY !</strong> First name was left empty !
+                    <button type = "button" class="close" data-dismiss="alert" aria-label = "Close">
                     <span aria-hidden="true">&times;</span>
-                </button>
+                    </button>
                 </div>';
-
-                echo $error;
-            }
-            if (isset($_GET['mailError'])) {
-                $error =
-                    '<div class ="alert alert-danger alert-dismissible" role="alert" >
-                <strong> SORRY !</strong> Email field was left empty!
-                <button type = "button" class="close" data-dismiss="alert" aria-label = "Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>';
-
-                echo $error;
-            }
-            if (isset($_GET['mailPtnError'])) {
-                $error =
-                    '<div class ="alert alert-danger alert-dismissible" role="alert" >
-                <strong> SORRY !</strong> Invalid email pattern supplied !
-                <button type = "button" class="close" data-dismiss="alert" aria-label = "Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>';
-
-                echo $error;
-            }
-            if (isset($_GET['uPassEmptyError'])) {
-                $error =
-                    '<div class ="alert alert-danger alert-dismissible" role="alert" >
-                    <strong> SORRY !</strong> First name was left empty.
-                    <button type = "button" class="close" data-dismiss="alert" aria-label ="Close">
+                    echo $error;
+                }
+                if (isset($_GET['fnLenError'])) {
+                    $error =
+                        '<div class ="alert alert-danger alert-dismissible" role="alert" >
+                    <strong> SORRY !</strong> First name needs at least 3 chars !
+                    <button type = "button" class="close" data-dismiss="alert" aria-label = "Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>';
+                    echo $error;
+                }
+                if (isset($_GET['fnPtnError'])) {
+                    $error =
+                        '<div class ="alert alert-danger alert-dismissible" role="alert" >
+                    <strong> SORRY !</strong> First name spaces & letters only !
+                    <button type = "button" class="close" data-dismiss="alert" aria-label = "Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>';
+                    echo $error;
+                }
+                if (isset($_GET['lnError'])) {
+                    $error =
+                        '<div class ="alert alert-danger alert-dismissible" role="alert" >
+                    <strong> SORRY !</strong> Last name was left empty.
+                    <button type = "button" class="close" data-dismiss="alert" aria-label = "Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>';
 
-                echo $error;
-            }
-            if (isset($_GET['vPassEmptyError'])) {
-                $error =
-                    '<div class ="alert alert-danger alert-dismissible" role="alert" >
-                <strong> SORRY !</strong> First name was left empty.
-                <button type = "button" class="close" data-dismiss="alert" aria-label = "Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
+                    echo $error;
+                }
+                if (isset($_GET['lnLenError'])) {
+                    $error =
+                        '<div class ="alert alert-danger alert-dismissible" role="alert" >
+                    <strong> SORRY !</strong> Last name needs at least 3 chars !
+                    <button type = "button" class="close" data-dismiss="alert" aria-label = "Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>';
+                    echo $error;
+                }
+                if (isset($_GET['lnPtnError'])) {
+                    $error =
+                        '<div class ="alert alert-danger alert-dismissible" role="alert" >
+                    <strong> SORRY !</strong>  Last name spaces & letters only !
+                    <button type = "button" class="close" data-dismiss="alert" aria-label = "Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>';
+                    echo $error;
+                }
+
+
+                if (isset($_GET['mailError'])) {
+                    $error =
+                        '<div class ="alert alert-danger alert-dismissible" role="alert" >
+                    <strong> SORRY !</strong> Email field was left empty!
+                    <button type = "button" class="close" data-dismiss="alert" aria-label = "Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>';
 
-                echo $error;
-            }
-            if (isset($_GET['uPassPtnError'])) {
-                $error =
-                    '<div class ="alert alert-danger alert-dismissible" role="alert" >
-                <strong>SORRY !</strong> Alphanumeric & spl chrs for pswd !
-                <button type = "button" class="close" data-dismiss="alert" aria-label = "Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-                </div>';
-                echo $error;
-            }
-            if (isset($_GET['vuPassPtnError'])) {
-                $error =
-                    '<div class ="alert alert-danger alert-dismissible" role="alert" >
-                <strong>SORRY !</strong> Alphanumeric & spl chrs to verify pswd !
-                <button type = "button" class="close" data-dismiss="alert" aria-label = "Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
+                    echo $error;
+                }
+                if (isset($_GET['mailPtnError'])) {
+                    $error =
+                        '<div class ="alert alert-danger alert-dismissible" role="alert" >
+                    <strong> SORRY !</strong> Invalid email pattern supplied !
+                    <button type = "button" class="close" data-dismiss="alert" aria-label = "Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>';
 
-                echo $error;
-            }
-            if (isset($_GET['passMisMatchError'])) {
-                $error =
-                    '<div class ="alert alert-danger alert-dismissible" role="alert" >
-                <strong> SORRY !</strong> Two Passwords do not match !
-                <button type = "button" class="close" data-dismiss="alert" aria-label = "Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-                </div>';
-                echo $error;
-            }
-            if (isset($_GET['passError'])) {
-                $error =
-                    '<div class ="alert alert-danger alert-dismissible" role="alert" >
-                <strong> SORRY !</strong> Alphanumeric & spl chrs for pswd !
-                <button type = "button" class="close" data-dismiss="alert" aria-label = "Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-                </div>';
-                echo $error;
-            }
-            ?>
+                    echo $error;
+                }
+                if (isset($_GET['uPassEmptyError'])) {
+                    $error =
+                        '<div class ="alert alert-danger alert-dismissible" role="alert" >
+                        <strong> SORRY !</strong> First name was left empty.
+                        <button type = "button" class="close" data-dismiss="alert" aria-label ="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>';
+
+                    echo $error;
+                }
+                if (isset($_GET['vPassEmptyError'])) {
+                    $error =
+                        '<div class ="alert alert-danger alert-dismissible" role="alert" >
+                    <strong> SORRY !</strong> First name was left empty.
+                    <button type = "button" class="close" data-dismiss="alert" aria-label = "Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>';
+
+                    echo $error;
+                }
+                if (isset($_GET['upassStrLengthError'])) {
+                    $error =
+                        '<div class ="alert alert-danger alert-dismissible" role="alert" >
+                    <strong>SORRY !</strong> Password should be at least 6 chars !
+                    <button type = "button" class="close" data-dismiss="alert" aria-label = "Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>';
+                    echo $error;
+                }
+                if (isset($_GET['vpassStrLengthError'])) {
+                    $error =
+                        '<div class ="alert alert-danger alert-dismissible" role="alert" >
+                    <strong>SORRY !</strong> Verify password should be at least 6 chars !
+                    <button type = "button" class="close" data-dismiss="alert" aria-label = "Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>';
+
+                    echo $error;
+                }
+                if (isset($_GET['passMisMatchError'])) {
+                    $error =
+                        '<div class ="alert alert-danger alert-dismissible" role="alert" >
+                    <strong> SORRY !</strong> Two Passwords do not match !
+                    <button type = "button" class="close" data-dismiss="alert" aria-label = "Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>';
+                    echo $error;
+                }
+                if (isset($_GET['passError'])) {
+                    $error =
+                        '<div class ="alert alert-danger alert-dismissible" role="alert" >
+                    <strong> SORRY !</strong> Alphanumeric & spl chrs for pswd !
+                    <button type = "button" class="close" data-dismiss="alert" aria-label = "Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>';
+                    echo $error;
+                }
+                ?>
                 <form action="" method="post">
                     <div class="form-group has-feedback">
                         <input type="text" name="firstName" class="form-control" placeholder="First name">
@@ -316,14 +305,7 @@ if (isset($_POST['btn-signup'])) {
                         <input type="text" name="lastName" class="form-control" placeholder="Last name">
                         <span class="glyphicon glyphicon-user form-control-feedback"></span>
                     </div>
-                    <div class="form-group has-feedback">
-                        <select id="abc" name="userRole" class="form-control">
-                            <option>Select User Role</option>
-                            <option value="0"> Admin</option>
-                            <option value="1"> Editor</option>
-                            <option value="2"> Author</option>
-                        </select>
-                    </div>
+
                     <div class="form-group has-feedback">
                         <input type="text" name="txtemail" class="form-control" placeholder="Email">
                         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -336,7 +318,7 @@ if (isset($_POST['btn-signup'])) {
                     <div class="form-group has-feedback">
                         <input type="password" name="vtxtpass" class="form-control"
                             placeholder="Retype password (special symbols, letters, numbers)">
-                        <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                     </div>
                     <div class="row">
                         <div class="col-sm-8">
@@ -357,12 +339,12 @@ if (isset($_POST['btn-signup'])) {
                 </form>
 
                 <!-- <div class="social-auth-links text-center">
-            <p>- OR -</p>
-            <a href="#" class="btn btn-block btn-social btn-facebook btn-flat "><i class="fa fa-facebook"></i> Sign up using
-                Facebook</a>
-            <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign up using
-                Google+</a>
-            </div> -->
+                <p>- OR -</p>
+                <a href="#" class="btn btn-block btn-social btn-facebook btn-flat "><i class="fa fa-facebook"></i> Sign up using
+                    Facebook</a>
+                <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign up using
+                    Google+</a>
+                </div> -->
 
                 <div class="text-center text-color">
                     <a href="index.php" class="text-center"><strong> Already have a membership ! Click to log

@@ -2,10 +2,10 @@
 
 namespace Codecourse\Repositories;
 
-use PDO;
-use PDOException;
 use Codecourse\Repositories\PHPMailer;
 use Codecourse\Repositories\Database as Database;
+use PDO;
+use PDOException;
 
 class User
 {
@@ -31,7 +31,7 @@ class User
         return $stmt;
     }
 
-    public function register($firstName, $lastName, $txturole, $email, $upass, $vupass, $code)
+    public function register($firstName, $lastName, $email, $upass, $vupass, $code)
     {
         try {
             // Form validation check
@@ -53,12 +53,7 @@ class User
             } elseif (!preg_match("/^[a-zA-Z ]*$/", $lastName)) {
                 header('Location: ../../admin/login/signup.php?lnPtnError');
                 exit();
-            }
-            // elseif (empty($txturole)) {
-            //     header('Location: ../../admin/login/signup.php?uRoleError');
-            //     exit();
-            // }
-            elseif (empty($email)) {
+            } elseif (empty($email)) {
                 header('Location: ../../admin/login/signup.php?mailError');
                 exit();
             } elseif (empty($email)) {
@@ -70,19 +65,16 @@ class User
             } elseif (empty($upass)) {
                 header("Location: ../../admin/login/signup.php?uPassEmptyError");
                 exit();
-            }
-            //  elseif (!preg_match("/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{6,12}$/", $upass)) {
-            //     header('Location: ../../admin/login/signup.php?uPassPtnError');
-            //     exit();
-            // } elseif (empty($vupass)) {
-            //     header("Location: ../../admin/login/signup.php?vPassEmptyError");
-            //     exit();
-            // }
-            // elseif (!preg_match("/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{6,12}$/", $vupass)) {
-            //     header('Location: ../../admin/login/signup.php?vuPassPtnError');
-            //     exit();
-            // }
-            else {
+            } elseif (strlen($upass) < 6) {
+                header('Location: ../../admin/login/signup.php?upassStrLengthError');
+                exit();
+            } elseif (empty($vupass)) {
+                header("Location: ../../admin/login/signup.php?vPassEmptyError");
+                exit();
+            } elseif (strlen($vupass) < 6) {
+                header('Location: ../../admin/login/signup.php?vpassStrLengthError');
+                exit();
+            } else {
                 // Matching two passwwords
                 $password = md5($upass);
                 $verifyPassword = md5($vupass);
@@ -93,16 +85,15 @@ class User
                     exit;
                 }
 
-                $stmt = $this->conn->prepare("INSERT INTO $this->table(firstName,lastName,userRole,userEmail,userPass,tokenCode)
-            VALUES(:first_name,:last_name,:user_role,:user_mail,:user_pass,:active_code)");
+                $stmt = $this->conn->prepare("INSERT INTO $this->table(firstName,lastName,userEmail,userPass,tokenCode)
+            VALUES(:first_name,:last_name,:user_mail,:user_pass,:active_code)");
                 $stmt->bindparam(':first_name', $firstName);
                 $stmt->bindparam(':last_name', $lastName);
-                $stmt->bindparam(':user_role', $txturole);
+                // $stmt->bindparam(':user_role', $txturole);
                 $stmt->bindparam(':user_mail', $email);
                 $stmt->bindparam(':user_pass', $password);
                 $stmt->bindparam(':active_code', $code);
                 $stmt->execute();
-
                 return $stmt;
             }
         } catch (PDOException $ex) {
@@ -110,25 +101,16 @@ class User
         }
     }
 
-    public function login($email, $upass, $uRole)
+    public function login($email, $upass)
     {
         try {
-            switch ($uRole) {
-                case '0':
-                    $stmt = $this->conn->prepare("SELECT * FROM $this->table WHERE userEmail=:email_id AND userRole = :userRole");
-                    break;
-                case '1':
-                    $stmt = $this->conn->prepare("SELECT * FROM $this->table WHERE userEmail=:email_id AND userRole = :userRole");
-                    break;
-                case '2':
-                    $stmt = $this->conn->prepare("SELECT * FROM $this->table WHERE userEmail=:email_id AND userRole = :userRole");
-                    break;
-                default:
-                    #...Code if necessary
-                    break;
+            // Checks if email field is empty And shows message
+            if (empty($email)) {
+                header('Location: ../../admin/login/index.php?blankEmail');
+                exit;
             }
-
-            $stmt->execute(array(':email_id' => $email, 'userRole' => $uRole));
+            $stmt = $this->conn->prepare("SELECT * FROM $this->table WHERE userEmail=:email_id");
+            $stmt->execute(array(':email_id' => $email));
             $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
             if ($stmt->rowCount() == 1) {
                 if ($userRow['userStatus'] == 'Y') {

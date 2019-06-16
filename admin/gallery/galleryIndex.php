@@ -60,9 +60,9 @@
                     ?>
                     <?php
                     use Codecourse\Repositories\Gallery as Gallery;
-use Codecourse\Repositories\Helpers as Helper;
+                    use Codecourse\Repositories\Helpers as Helper;
 
-$gallery = new Gallery();
+                    $gallery = new Gallery();
                     $helper = new Helper;
                     if (isset($_GET['delete_id'])) {
                         $id = $_GET['delete_id'];

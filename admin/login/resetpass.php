@@ -67,49 +67,50 @@
                 </div><br>
                 <?php
 
-        require_once '../app/start.php';
-        use Codecourse\Repositories\User as User;
+                require_once '../app/start.php';
+                use Codecourse\Repositories\User as User;
 
-        $user = new User();
+                $user = new User();
 
-        if (empty($_GET['id']) && empty($_GET['code'])) {
-            $user->redirect('index.php');
-        }
+                if (empty($_GET['id']) && empty($_GET['code'])) {
+                    $user->redirect('index.php');
+                }
 
-        if (isset($_GET['id']) && isset($_GET['code'])) {
-            $id = base64_decode($_GET['id']);
-            $code = $_GET['code'];
-            $stmt = $user->runQuery('SELECT * FROM tbl_users WHERE userID=:uid AND tokenCode=:token');
-            $stmt->execute(array(':uid' => $id, ':token' => $code));
-            $rows = $stmt->fetch(PDO::FETCH_ASSOC);
-            if ($stmt->rowCount() == 1) {
-                if (isset($_POST['btn-reset-pass'])) {
-                    $pass = $_POST['pass'];
-                    $cpass = $_POST['confirm-pass'];
-                    if ($cpass !== $pass) {
+                if (isset($_GET['id']) && isset($_GET['code'])) {
+                    $id = base64_decode($_GET['id']);
+                    $code = $_GET['code'];
+                    $stmt = $user->runQuery('SELECT * FROM tbl_users WHERE userID=:uid AND tokenCode=:token');
+                    $stmt->execute(array(':uid' => $id, ':token' => $code));
+                    $rows = $stmt->fetch(PDO::FETCH_ASSOC);
+                    if ($stmt->rowCount() == 1) {
+                        if (isset($_POST['btn-reset-pass'])) {
+                            $pass = $_POST['pass'];
+                            $cpass = $_POST['confirm-pass'];
+                            if ($cpass !== $pass) {
+                                $msg = "<div class='alert alert-danger'>
+                                <button class='close' data-dismiss='alert'>&times;</button>
+                                <strong>Sorry!</strong>  Passwords do not match.
+                                </div>";
+                            } else {
+                                $password = md5($cpass);
+                                $sql = 'UPDATE tbl_users SET userPass=:upass WHERE userID=:uid';
+                                $stmt = $user->runQuery($sql);
+                                $stmt->execute(array(':upass' => $password, ':uid' => $rows['userID']));
+
+                                $msg = "<div class='alert alert-success'>
+                                <button class='close' data-dismiss='alert'>&times;</button>
+                                Password Changed.
+                                </div>";
+                                header('refresh:5;index.php');
+                            }
+                        }
+                    } else {
                         $msg = "<div class='alert alert-danger'>
                         <button class='close' data-dismiss='alert'>&times;</button>
-                        <strong>Sorry!</strong>  Passwords do not match.
+                        No Account Found, Try again
                         </div>";
-                    } else {
-                        $password = md5($cpass);
-                        $stmt = $user->runQuery('UPDATE tbl_users SET userPass=:upass WHERE userID=:uid');
-                        $stmt->execute(array(':upass' => $password, ':uid' => $rows['userID']));
-
-                        $msg = "<div class='alert alert-success'>
-                        <button class='close' data-dismiss='alert'>&times;</button>
-                        Password Changed.
-                        </div>";
-                        header('refresh:5;index.php');
                     }
-                }
-            } else {
-                $msg = "<div class='alert alert-danger'>
-                <button class='close' data-dismiss='alert'>&times;</button>
-                No Account Found, Try again
-                </div>";
-            }
-        }?>
+                }?>
                 <form class="" method="post">
                     <div class='alert alert-warning'>
                         <strong>Hello ! <?php echo $rows['firstName'].' '.$rows['lastName']; ?></strong>
@@ -117,9 +118,9 @@
                     </div>
                     <!-- <p class="text-color text-center"> Reset your password</p><hr class="hr-color"><br> -->
                     <?php
-            if (isset($msg)) {
-                echo $msg;
-            }?>
+                    if (isset($msg)) {
+                        echo $msg;
+                    }?>
                     <div class="form-group has-feedback">
                         <input type="password" class="form-control" placeholder="New Password" name="pass" required />
                         <span class="glyphicon glyphicon-lock form-control-feedback"></span>

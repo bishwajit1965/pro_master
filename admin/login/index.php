@@ -14,29 +14,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['btn-login'])) {
         $email = trim($_POST['txtemail']);
         $upass = trim($_POST['txtupass']);
-        $uRole = trim($_POST['userRole']);
         $remember = trim($_POST['remember']);
     }
-    if (isset($uRole)) {
-        switch ($uRole) {
-            case '0':
-                $user_login->login($email, $upass, $uRole, $remember);
-                $user_login->redirect('home.php');
-                break;
-            case '1':
-                $user_login->login($email, $upass, $uRole, $remember);
-                $user_login->redirect('dashboard.php');
-                break;
-            case '2':
-                $user_login->login($email, $upass, $uRole, $remember);
-                $user_login->redirect('dashboard.php');
-                break;
-            default:
-                header('Location: ../../admin/login/index.php?emptyuRole');
-                break;
-        }
+    if (isset($remember)) {
+        $user_login->login($email, $upass, $remember);
+        $user_login->redirect('home.php');
     } else {
-        #...Code if necessary
+        if (!isset($remember)) {
+            $user_login->login($email, $upass);
+            $user_login->redirect('dashboard.php');
+        }
     }
 }
 
@@ -101,6 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             .text-color a {
                 color: #edeff0;
+
             }
 
             .text-color a:hover {
@@ -128,40 +116,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <p>Sign in to start your session</p>
                 </div>
                 <?php
-            // Validation messages
-            if (isset($_GET['passwordError'])) {
+                // Validation messages
+                if (isset($_GET['blankEmail'])) {
+                    ?>
+                    <div class='alert alert-danger'>
+                        <button class='close' data-dismiss='alert'>&times;</button>
+                        <strong>SORRY !!! Email field was left blank ! </strong>
+                    </div>
+                    <?php
+                }
+                if (isset($_GET['emptyEmail'])) {
+                    ?>
+                    <div class='alert alert-danger'>
+                        <button class='close' data-dismiss='alert'>&times;</button>
+                        <strong>SORRY !!! Email address does not match ! </strong>
+                    </div>
+                    <?php
+                }
+                if (isset($_GET['passwordError'])) {
+                    ?>
+                    <div class='alert alert-danger'>
+                        <button class='close' data-dismiss='alert'>&times;</button>
+                        <strong>SORRY !!! Password does not match ! </strong>
+                    </div>
+                    <?php
+                }
+                if (isset($_GET['inactive'])) {
+                    ?>
+                    <div class='alert alert-danger'>
+                        <button class='close' data-dismiss='alert'>&times;</button>
+                        <strong>SORRY!!</strong> This Account is not Activated Go to your Inbox and Activate it.
+                    </div>
+                    <?php
+                }
                 ?>
-                <div class='alert alert-danger'>
-                    <button class='close' data-dismiss='alert'>&times;</button>
-                    <strong>SORRY !!! Password does not match ! </strong>
-                </div>
-                <?php
-            }
-            if (isset($_GET['emptyuRole'])) {
-                ?>
-                <div class='alert alert-danger'>
-                    <button class='close' data-dismiss='alert'>&times;</button>
-                    <strong>SORRY !!! Check in right checkbox below ! </strong>
-                </div>
-                <?php
-            }
-            if (isset($_GET['emptyEmail'])) {
-                ?>
-                <div class='alert alert-danger'>
-                    <button class='close' data-dismiss='alert'>&times;</button>
-                    <strong>SORRY !!! Email address does not match ! </strong>
-                </div>
-                <?php
-            }
-            if (isset($_GET['inactive'])) {
-                ?>
-                <div class='alert alert-danger'>
-                    <button class='close' data-dismiss='alert'>&times;</button>
-                    <strong>SORRY!!</strong> This Account is not Activated Go to your Inbox and Activate it.
-                </div>
-                <?php
-            }
-            ?>
                 <form action="" method="post" id="login-form">
                     <div class="form-group has-feedback">
                         <input type="email" class="form-control" name="txtemail" id="email" placeholder="Email">
@@ -172,16 +160,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             placeholder="Password">
                         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                     </div>
-                    <div class="text-center text-color">
-                        <p style="color:#D2D6DE;">Check in the right check boxes below<span
-                                style="color:red;font-weight:bold;"> ( Required )</span></p>
-                    </div>
-                    <div class="form-group has-feedback text-center">
-                        <input type="checkbox" name="userRole" value="0"><span class="text-color"> Admin</span> &nbsp;
-                        <input type="checkbox" name="userRole" value="1"><span class="text-color"> Editor</span> &nbsp;
-                        <input type="checkbox" name="userRole" value="2"><span class="text-color"> Author</span> &nbsp;
-                    </div>
-
                     <div class="row">
                         <div class="col-xs-8">
                             <div class="checkbox icheck">

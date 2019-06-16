@@ -1,43 +1,25 @@
 <div class="row">
-    <div class="px- py- bg-dark middle-header-area color">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="views/images/slider_images/banner1.jpg" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>First slide label</h5>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="views/images/slider_images/banner2.jpg" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Second slide label</h5>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="views/images/slider_images/banner3.jpg" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Third slide label</h5>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                        </div>
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-                </div>
+    <div class="px-5 py-2 bg-light middle-header-area">
 
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil deleniti suscipit alias tempore voluptatum,
+            ducimus quos optio eos ipsa architecto impedit. Quas facilis, laboriosam sint, sed tempora illum impedit
+            neque
+            magni dolore, aperiam quibusdam laudantium aut ea vel! Ullam, aperiam? Ut fuga enim eum pariatur. Qui
+            asperiores
+            unde doloremque velit. Quisquam pariatur voluptate natus tempora sed fugit sint iste? Maxime, deleniti sed!
+            Quam
+            molestiae esse mollitia deleniti laborum. Eaque, dolores accusantium voluptatibus id nostrum repellat quae
+            aliquam tempore nisi sint incidunt ipsum quia ut laboriosam, ex provident quo labore reprehenderit animi
+            doloribus iusto odio facere molestias. Tempore accusamus quis fugiat, similique, deserunt eius, minus
+            voluptates
+            molestiae maiores ab quasi eligendi iure blanditiis. Animi sed tempore minima cupiditate possimus nisi
+            voluptatem dolores dolor est sint ullam ad eligendi voluptate, ratione impedit commodi esse officiis ipsam
+            sit
+            atque molestias fugiat et tenetur dignissimos? Illo, quam. Quis vero ratione cumque, architecto fuga
+            recusandae?
+            Deserunt assumenda saepe dolore dolor, doloremque ratione distinctio beatae amet. Commodi repellat optio
+            laboriosam nemo, dicta quidem recusandae ut quam sunt eligendi sint. Ex sapiente beatae vel deleniti,
+            reprehenderit ducimus amet distinctio quisquam tempore, iusto eius impedit aliquam maiores cum nihil hic,
+            aperiam atque. Facere perspiciatis quis quam culpa ipsa!</p>
     </div>
 </div>

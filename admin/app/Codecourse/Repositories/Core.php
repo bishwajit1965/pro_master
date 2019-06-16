@@ -1,26 +1,12 @@
 <?php
-namespace Codecourse\Repositories;
 
-use Codecourse\Repositories\Database as Database;
-use PDO;
-use PDOException;
+include_once('Database.php');
 
 class Core
 {
     // Database connection constructor
     private $conn;
-
-    private $table = null;
-    public function table($table)
-    {
-        $this->table = $table;
-        $this->table = implode(',', $table);
-
-        if (!empty($this->table)) {
-            $this->table = $_GET["$table"];
-            return $this->table;
-        }
-    }
+    private $table;
 
     public function __construct()
     {
@@ -28,7 +14,6 @@ class Core
         $dbConnection = $database->dbConnection();
         $this->conn = $dbConnection;
     }
-
 
     // View Data in Index page
     public function index()

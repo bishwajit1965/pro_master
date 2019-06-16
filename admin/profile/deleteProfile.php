@@ -43,8 +43,8 @@
                     <?php
                     use Codecourse\Repositories\Profile as Profile;
 
-$profile = new Profile();
-                    $query = 'SELECT * FROM tbl_users WHERE userID = :id';
+                    $profile = new Profile();
+                    $query ='SELECT * FROM tbl_users WHERE userID = :id';
                     $profile->deleteView($query);
                     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         if (isset($_POST['btn-delete'])) {

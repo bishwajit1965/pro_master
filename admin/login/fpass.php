@@ -144,7 +144,7 @@ if (isset($_POST['btn-submit'])) {
                     echo $msg;
                 } else {
                     ?>
-                    <div class='alert alert-warning'>
+                    <div class='alert alert-info'>
                         Please enter your email address. You will receive a link to create a new password via email !
                     </div>
                     <?php

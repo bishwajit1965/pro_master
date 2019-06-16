@@ -1,0 +1,137 @@
+/* For Small devices (landscape phones, 576px and up)
+====================================================*/
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+	.dropbtn {
+		margin-left: 0px;
+		font-size: 18px;
+        display: inline;
+    }
+    .nav-item {
+		margin-left: 0px;
+		font-size: 18px;
+        display: inline;
+		border-bottom: none;
+		border-top: none;
+	}
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	.dropbtn {
+		margin-left: 0px;
+		font-size: 18px;
+		display: inline;
+	}
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	.dropbtn {
+		margin-left: 0px;
+		font-size: 18px;
+		display: inline;
+	}
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+	.dropbtn {
+		margin-left: 0px;
+		font-size: 18px;
+		display: inline;
+	}
+}
+
+/* For Extra small devices (portrait phones, less than 576px)
+============================================================*/
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+	.left-side-bar,
+	.middle,
+	.right-side-bar {
+		width: 100%;
+	}
+	.pl-5,
+	.px-5,
+	.middle {
+		padding-left: 1rem !important;
+	}
+	.pl-5,
+	.px-5,
+	.middle {
+		padding-right: 1rem !important;
+    }
+    img {
+        width:100%;
+        margin-top: 18px;
+        margin-bottom: 18px;
+    }
+    .nav-item {
+		margin-left: 0px;
+		font-size: 10px;
+        display: inline;
+        border-bottom: 1px solid #333;
+		border-top: 1px solid #444;
+	}
+	.navbar-nav .nav-link {
+		padding-right: 0;
+		padding-left: 0;
+		float: left;
+	}
+}
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+	.left-side-bar,
+	.middle,
+	.right-side-bar {
+		width: 100%;
+	}
+	.pl-5,
+	.px-5,
+	.middle {
+		padding-left: 1rem !important;
+	}
+	.pl-5,
+	.px-5,
+	.middle, .right-side-bar {
+		padding-right: 1rem !important;
+    }
+    img {
+        width:100%;
+        margin-top: 18px;
+        margin-bottom: 10px;
+    }
+}
+
+/*  Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+	.left-side-bar,
+	.middle,
+	.right-side-bar {
+		width: 100%;
+	}
+	.pl-5,
+	.px-5,
+	.middle {
+		padding-left: 1rem !important;
+	}
+	.pl-5,
+	.px-5,
+	.middle,
+	.right-side-bar {
+		padding-right: 1rem !important;
+    }
+    img {
+        width:100%;
+        margin-top: 18px;
+        margin-bottom: 10px;
+    }
+}
+
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+	...;
+}

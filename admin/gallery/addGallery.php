@@ -42,7 +42,7 @@
                         <?php
                         use Codecourse\Repositories\Gallery as Gallery;
 
-$gallery = new Gallery();
+                        $gallery = new Gallery();
 
                         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             if (isset($_POST['btn-insert'])) {

@@ -16,13 +16,28 @@
             <div class="input-group">
                 <input type="text" name="q" class="form-control" placeholder="Search...">
                 <span class="input-group-btn">
-                    <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                    <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i
+                            class="fa fa-search"></i>
                     </button>
                 </span>
             </div>
         </form>
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
+        <?php
+        require_once '../app/start.php';
+        use Codecourse\Repositories\User as User;
+        use Codecourse\Repositories\Session as Session;
+
+        Session::init();
+
+        $user = new User();
+        if ($_SESSION['userEmail'] == $user->getEmail()) {
+            ?>
+
+        <?php
+        }
+        ?>
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
             <li class="treeview">
@@ -85,7 +100,20 @@
                     <li><a href="../gallery/galleryIndex.php"><i class="fa fa-circle-o"></i> Gallery index</a></li>
                 </ul>
             </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>User Options</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="../roles/userIndex.php"><i class="fa fa-circle-o"></i> User index</a></li>
+                </ul>
+            </li>
         </ul>
+
     </section>
     <!-- /.sidebar -->
 </aside>

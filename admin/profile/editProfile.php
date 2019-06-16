@@ -45,7 +45,7 @@
                         <?php
                         use Codecourse\Repositories\Profile as Profile;
 
-$profile = new Profile();
+                        $profile = new Profile();
                         // Fetch single data from database to display
                         if (isset($_GET['edit_id'])) {
                             $id = $_GET['edit_id'];

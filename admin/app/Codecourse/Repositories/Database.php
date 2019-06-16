@@ -2,8 +2,11 @@
 
 namespace Codecourse\Repositories;
 
-// Will use PDO class and PDOException
-// Otherwise error will be shown in db connection
+/**-------------------------------------------------
+ # Will use PDO class and PDOException
+ # Otherwise error will be shown in db connection
+ --------------------------------------------------*/
+
 use PDO;
 use PDOException;
 

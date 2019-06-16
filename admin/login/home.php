@@ -7,10 +7,10 @@ use Codecourse\Repositories\Profile as Profile;
 Session::init();
 $profile = new Profile;
 $user_home = new User();
+
 if (!$user_home->is_logged_in()) {
     $user_home->redirect('../login/index.php');
 }
-
 
 ?>
 <!DOCTYPE html>
@@ -186,14 +186,33 @@ if (!$user_home->is_logged_in()) {
                                     </li>
                                     <!-- Menu Footer-->
                                     <li class="user-footer" style="background-color:#DDD;">
-                                        <div class="pull-left">
-                                            <a href="../profile/profileIndex.php" class="btn btn-sm btn-primary"><span
-                                                    class="glyphicon glyphicon-list"></span> Profile</a>
-                                        </div>
-                                        <div class="pull-right">
-                                            <a href="logout.php" class="btn btn-sm btn-danger"><span
-                                                    class="glyphicon glyphicon-fast-backward"></span>
-                                                Sign out</a>
+                                        <div class="row">
+                                            <?php
+
+                                            if ($_SESSION['userEmail'] == $user_home->getEmail()) {
+                                                ?>
+                                            <div class="col-xs-4 text-center">
+                                                <a href="../roles/userIndex.php" class="btn btn-xs btn-primary"><span
+                                                        class="glyphicon glyphicon-list"></span> Admins</a>
+                                            </div>
+                                            <div class="col-xs-4 text-center">
+                                                <a href="../profile/profileIndex.php" class="btn btn-xs btn-info"><span
+                                                        class="glyphicon glyphicon-list"></span> Profile</a>
+                                            </div>
+                                            <div class="col-xs-4 text-center">
+                                                <a href="../login/logout.php" class="btn btn-xs btn-danger"><span
+                                                        class="glyphicon glyphicon-log-out"></span> Log out</a>
+                                            </div>
+                                            <?php
+                                            } else {
+                                                ?>
+                                            <div class="col-xs-12 text-center">
+                                                <a href="../login/logout.php" class="btn btn-block btn-danger"><span
+                                                        class="glyphicon glyphicon-log-out"></span> Log out</a>
+                                            </div>
+                                            <?php
+                                            }
+                                            ?>
                                         </div>
                                     </li>
                                 </ul>
@@ -245,11 +264,16 @@ if (!$user_home->is_logged_in()) {
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="../students/studentIndex.php">
-                                        <i class="fa fa-circle-o"></i> Student Index</a></li>
+                                        <i class="fa fa-circle-o"></i> Student Index</a>
+                                </li>
 
                                 <li><a href="../result/resultIndex.php">
-                                        <i class="fa fa-circle-o"></i> Result Index</a></li>
+                                        <i class="fa fa-circle-o"></i> Result Index</a>
+                                </li>
 
+                                <li><a href="../roles/userIndex.php">
+                                        <i class="fa fa-circle-o"></i> Role Index</a>
+                                </li>
                             </ul>
                         </li>
                     </ul>
@@ -458,7 +482,7 @@ if (!$user_home->is_logged_in()) {
                                                 <a href="#" class="small-box-footer">
                                                     More info <i class="fa fa-arrow-circle-right"></i>
                                                 </a>
-                                           </div>
+                                            </div>
                                         </div>
                                         <!-- ./col -->
                                         <div class="col-lg-3 col-xs-6">

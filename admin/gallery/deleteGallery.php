@@ -29,10 +29,12 @@
                     <h3 class="box-title">Title</h3>
 
                     <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+                            title="Collapse">
                             <i class="fa fa-minus"></i>
                         </button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"> <i class="fa fa-times"></i>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip"
+                            title="Remove"> <i class="fa fa-times"></i>
                         </button>
                     </div>
                 </div>
@@ -48,7 +50,7 @@ $gallery = new Gallery();
                     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         if (isset($_POST['btn-delete'])) {
                             $id = $_GET['delete_id'];
-                            $gallery->delete($id);
+                            $gallery->destroy($id);
                         }
                     }
                     ?>

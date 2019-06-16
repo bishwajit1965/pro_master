@@ -10,7 +10,7 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-            <h1>Profile index page<small>it all starts here</small></h1>
+            <h1>Users role index page<small>it all starts here</small></h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
                 <li><a href="#">Examples</a></li>
@@ -22,9 +22,14 @@
             <!-- Default box -->
             <div class="box">
                 <div class="box-header with-border">
-                    <!-- <h3 class="box-title">List of all users</h3> -->
-                    <a href="addProfile.php" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Add Profile
-                        Data</a>
+                    <?php
+                    if ($_SESSION['userEmail'] == $user_home->getEmail()) {
+                        ?>
+                    <a href="addUser.php" class="btb btn-sm btn-primary"><i class="glyphicon glyphicon-user"></i> Create
+                        New User </a>
+                    <?php
+                    }
+                    ?>
                     <div class="box-tools pull-right">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
                             title="Collapse"><i class="fa fa-minus"></i>
@@ -63,100 +68,99 @@
                         </div>';
                     }
                     ?>
-                    <?php
 
-
-                    ?>
                     <div class="table-responsive">
                         <table id="example1" class="table table-responsive table-striped table-condensed table-primary">
                             <thead class="thead-dark">
                                 <tr>
                                     <th>Id</th>
-                                    <th>About me</th>
-                                    <th>Social</th>
-                                    <th>Profile Photo</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>User role</th>
+                                    <th>User status</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                use Codecourse\Repositories\Profile as Profile;
 
-$profile = new Profile();
-                                // Will delete profile data
-                                if (isset($_GET['delete_id'])) {
-                                    $id = $_GET['delete_id'];
-                                    $profile->destroy($id);
-                                }
-
+                                use Codecourse\Repositories\UserRole as UserRole;
                                 use Codecourse\Repositories\User as User;
 
-                                $user = new User;
+                                $user_home = new User();
+                                $role = new UserRole();
+                                if (isset($_GET['delete_id'])) {
+                                    $id = $_GET['delete_id'];
+                                    $role->destroy($id);
+                                }
 
-                                // Will ldisp;ay all the profile data
-                                $profileData = $profile->index();
 
-                                if (!empty($profileData)) {
+                                $userData = $role->index();
+
+                                if (!empty($userData)) {
                                     $id = 1;
-                                    foreach ($profileData as $profile) {
+                                    foreach ($userData as $user) {
                                         ?>
                                 <tr>
                                     <td>
                                         <?php echo $id++; ?>
                                     </td>
                                     <td>
-                                        <?php echo $profile->about_me; ?>
+                                        <?php echo $user->firstName. ' ' .$user->lastName; ?>
                                     </td>
                                     <td>
-                                        <?php echo $profile->pro_social; ?>
-                                    </td>
-                                    <td>
-                                        <img src="<?php echo $profile->photo; ?>"
-                                            alt="Profile photo" class="img-thumbnail img-responsive"
-                                            style="width:90px;hight:80px;">
+                                        <?php echo $user->userEmail; ?>
                                     </td>
                                     <td>
                                         <?php
-                                        if ($_SESSION['userEmail'] == $user->getEmail()) {
-                                            ?>
-                                        <a href="addProfile.php" class="btn btn-xs btn-primary"><i
-                                                class="fa fa-plus"></i> Add Profile</a>
+                                        if ($user->userRole == null) {
+                                            echo 'Not assigned';
+                                        } else {
+                                            if ($user->userRole == 0) {
+                                                echo 'Admin ' . ' = ' . $user->userRole;
+                                            } elseif ($user->userRole == 1) {
+                                                echo 'Editor ' . ' = ' . $user->userRole;
+                                            } elseif ($user->userRole == 2) {
+                                                echo 'Author ' . ' = ' . $user->userRole;
+                                            }
+                                        } ?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                        if ($user->userStatus == 'Y') {
+                                            echo 'Active';
+                                        } else {
+                                            if ($user->userStatus == 'N') {
+                                                echo 'Inctive';
+                                            }
+                                        } ?>
+                                    </td>
 
+                                    <td>
+                                        <?php
+                                        if ($_SESSION['userEmail'] == $user_home->getEmail()) {
+                                            ?>
                                         <a class="btn btn-xs btn-primary"
-                                            href="editProfile.php?edit_id=<?php echo $profile->pro_id; ?>"><i
+                                            href="editUser.php?edit_id=<?php echo $user->userID; ?>"><i
                                                 class="fa fa-pencil"></i> Edit</a>
 
                                         <a class="btn btn-xs btn-danger"
-                                            href="profileIndex.php?delete_id=<?php echo $profile->pro_id; ?>"
+                                            href="?delete_id=<?php echo $user->userID; ?>"
                                             onClick="return confirm('Do you really want to delete this data? If deleted it is lost for ever !!!');">
                                             <i class="fa fa-trash"></i> Delete</a>
-                                        <?php
-                                        } elseif ($_SESSION['userEmail'] == $user->getEditorEmail()) {
-                                            ?>
-                                        <a href="addProfile.php" class="btn btn-xs btn-primary"><i
-                                                class="fa fa-plus"></i> Add Profile</a>
                                         <a class="btn btn-xs btn-primary"
-                                            href="editProfile.php?edit_id=<?php echo $profile->pro_id; ?>"><i
-                                                class="fa fa-pencil"></i> Edit</a>
-
-                                        <?php
-                                        } elseif ($_SESSION['userEmail'] == $user->getAuthorEmail()) {
-                                            ?>
-                                        <a href="addProfile.php" class="btn btn-xs btn-primary"><i
-                                                class="fa fa-plus"></i> Add Profile</a>
-                                        <a class="btn btn-xs btn-primary"
-                                            href="editProfile.php?edit_id=<?php echo $profile->pro_id; ?>"><i
-                                                class="fa fa-pencil"></i> Edit</a>
+                                            href="assignRole.php?role_id=<?php echo $user->userID; ?>"
+                                            onClick="return confirm('Do you really want to assign role to this user ? Then click OK !!!');">
+                                            <i class="fa fa-trash"></i> Assign Role</a>
                                         <?php
                                         } else {
                                             ?>
                                         <a class="btn btn-xs btn-primary"
-                                            href="editProfile.php?edit_id=<?php echo $profile->pro_id; ?>">
+                                            href="editUser.php?edit_id=<?php echo $user->userID; ?>">
                                             <i class="fa fa-eye"></i> View</a>
                                         <?php
                                         } ?>
                                     </td>
-
                                 </tr>
 
                                 <?php
@@ -167,13 +171,13 @@ $profile = new Profile();
                             <tfooter>
                                 <tr>
                                     <th>Id</th>
-                                    <th>About me</th>
-                                    <th>Social</th>
-                                    <th>Profile Photo</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>User role</th>
+                                    <th>User status</th>
                                     <th>Actions</th>
                                 </tr>
                             </tfooter>
-                        </table>
                         </table>
                         <!-- Code above -->
                     </div>

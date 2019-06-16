@@ -33,7 +33,8 @@
                                     <!-- start message -->
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                            <img src="../../dist/img/user2-160x160.jpg" class="img-circle"
+                                                alt="User Image">
                                         </div>
                                         <h4>
                                             Support Team
@@ -88,7 +89,9 @@
                                             <small class="pull-right">20%</small>
                                         </h3>
                                         <div class="progress xs">
-                                            <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar progress-bar-aqua" style="width: 20%"
+                                                role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                aria-valuemax="100">
                                                 <span class="sr-only">20% Complete</span>
                                             </div>
                                         </div>
@@ -136,16 +139,38 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="row">
-                                <div class="col-sm-4 text-center">
-                                    <a href="../userAdmins/adminIndex.php" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-list"></span> Admins</a>
-                                </div>
-                                <div class="col-sm-4 text-center">
-                                    <a href="#" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-list"></span> Profile</a>
-                                </div>
+                                <?php
+                                require_once '../app/start.php';
+                                use Codecourse\Repositories\User as User;
+                                use Codecourse\Repositories\Session as Session;
 
-                                <div class="col-sm-4 text-center">
-                                    <a href="../login/logout.php" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                                Session::init();
+
+                                $user_home = new User();
+                                if ($_SESSION['userEmail'] == $user_home->getEmail()) {
+                                    ?>
+                                <div class="col-xs-4 text-center">
+                                    <a href="../roles/userIndex.php" class="btn btn-xs btn-primary"><span
+                                            class="glyphicon glyphicon-list"></span> Admins</a>
                                 </div>
+                                <div class="col-xs-4 text-center">
+                                    <a href="../profile/profileIndex.php" class="btn btn-xs btn-info"><span
+                                            class="glyphicon glyphicon-list"></span> Profile</a>
+                                </div>
+                                <div class="col-xs-4 text-center">
+                                    <a href="../login/logout.php" class="btn btn-xs btn-danger"><span
+                                            class="glyphicon glyphicon-log-out"></span> Log out</a>
+                                </div>
+                                <?php
+                                } else {
+                                    ?>
+                                <div class="col-xs-12 text-center">
+                                    <a href="../login/logout.php" class="btn btn-block btn-danger"><span
+                                            class="glyphicon glyphicon-log-out"></span> Log out</a>
+                                </div>
+                                <?php
+                                }
+                                ?>
                             </div>
                         </li>
                     </ul>

@@ -1,0 +1,49 @@
+/* Left side bar
+===============================*/
+
+
+
+
+
+
+/* Right side bar
+===============================*/
+ .bar>h4 {
+     margin-bottom:0px;
+ }
+.category>ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.category>ul>li {
+    background-color: #DDD;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    border-top: 1px solid #FFF;
+    display: block;
+}
+.category>ul>li:hover {
+    background-color: #EDEFF0;
+}
+
+.category>ul>li>a {
+    padding: 5px 10px;
+    text-decoration: none;
+    float:left;
+    /* display: block; */
+    color:#444;
+}
+.category>ul>li>a:hover {
+    background-color: #EDEFF0;
+    color:#CA3C30;
+    display:block;
+}
+.category>ul>li:last-child  {
+    border-bottom: 0px solid #EEE;
+}
+
+.recent-posts {
+    padding:50px;
+}

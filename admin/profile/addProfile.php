@@ -43,7 +43,13 @@
                         use Codecourse\Repositories\Profile as Profile;
 
 $profile = new Profile();
-
+                        // Fetching data to match only
+                        $profileData = $profile->dataExists();
+                        if (!empty($profileData)) {
+                            foreach ($profileData as $value) {
+                                #.... No coding is needed
+                            }
+                        }
                         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             if (isset($_POST['btn-insert'])) {
                                 $about_me = $_POST['about_me'];
@@ -57,19 +63,21 @@ $profile = new Profile();
                                 $file_ext     = strtolower(end($div));
                                 $unique_image = substr(md5(time()), 0, 10) . '.' . $file_ext;
                                 $photo = "uploads/" . $unique_image;
-                                // Sanitizing string data
 
+                                // Sanitizing string data
                                 if (!empty($file_name)) {
                                     $fields = [
-                                        'about_me' => $about_me,
-                                        'pro_social' => $pro_social,
-                                        'photo' => $photo,
-                                        'userID' => $sess_id
+                                    'about_me' => $about_me,
+                                    'pro_social' => $pro_social,
+                                    'photo' => $photo,
+                                    'userID' => $sess_id
                                     ];
+
                                     if (!empty($about_me) && !empty($pro_social)) {
                                         $about_me = filter_var($about_me, FILTER_SANITIZE_STRING);
                                         $pro_social = filter_var($pro_social, FILTER_SANITIZE_STRING);
                                     }
+
                                     if (empty($_POST['about_me'])) {
                                         echo '<div class="alert alert-danger alert-dismissible " role="alert">
                                         <strong> SORRY !</strong> Name field was left blank !!!
@@ -106,7 +114,15 @@ $profile = new Profile();
                                         </strong>&nbsp &nbsp
                                         </div>';
                                     } else {
-                                        if ($profile->dataExists() !== false) {
+                                        // If one user's profile data exists no data will be inserted
+                                        if ($_SESSION['userSession'] == $value->userID) {
+                                            echo '<div class="alert alert-danger alert-dismissible " role="alert">
+                                            <strong> SORRY !</strong> Your profile data is already inserted !!!
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>';
+                                        } else {
                                             // Will store data in database with picture
                                             $profile->store($fields);
                                             move_uploaded_file($file_temp, $photo);
@@ -114,31 +130,39 @@ $profile = new Profile();
                                     }
                                 } else {
                                     $fields = [
-                                        'about_me' => $about_me,
-                                        'pro_social' => $pro_social,
-                                        'userID' => $sess_id
+                                    'about_me' => $about_me,
+                                    'pro_social' => $pro_social,
+                                    'userID' => $sess_id
                                     ];
                                     if (!empty($name) && !empty($description)) {
                                         $name = filter_var($name, FILTER_SANITIZE_STRING);
                                         $description = filter_var($description, FILTER_SANITIZE_STRING);
                                     }
+
                                     if (empty($_POST['about_me'])) {
                                         echo '<div class="alert alert-danger alert-dismissible " role="alert">
-                                    <strong> SORRY !</strong> About me field was left blank !!!
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    </div>';
+                                        <strong> SORRY !</strong> About me field was left blank !!!
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>';
                                     } elseif (empty($_POST['pro_social'])) {
                                         echo '<div class="alert alert-danger alert-dismissible " role="alert">
-                                    <strong> SORRY !</strong> Social site field was left blank !!!
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    </div>';
+                                        <strong> SORRY !</strong> Social site field was left blank !!!
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>';
                                     } else {
-                                        // If one profile data exists no data will be inserted
-                                        if ($profile->dataExists() !== false) {
+                                        // If one user's profile data exists no data will be inserted
+                                        if ($_SESSION['userSession'] == $value->userID) {
+                                            echo '<div class="alert alert-danger alert-dismissible " role="alert">
+                                            <strong> SORRY !</strong> Your profile data is already inserted !!!
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>';
+                                        } else {
                                             // Will store data in database without picture
                                             $profile->store($fields);
                                         }
@@ -147,27 +171,19 @@ $profile = new Profile();
                             }
                         }
                         ?>
-                        <!-- If data is alreadt uploaded , it will alert a message -->
-                        <?php
-                        if (isset($_GET['profileDataExists']) && isset($_GET['profileDataExists']) == 1) {
-                            echo '<div class="alert alert-danger alert-dismissible " role="alert">
-                            <strong> SORRY !</strong> Profile data is already inserted !!!
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            </div>';
-                        }
-                        ?>
+
                         <form action="" method="post" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="name"> About me:</label>
                                 <input type="text" name="about_me" class="form-control"
-                                    placeholder="Insert about me data....">
+                                    placeholder="Insert about me data...."
+                                    value="<?php echo isset($_POST['about_me']) ? $_POST['about_me']: '';?>">
                             </div>
                             <div class="form-group">
                                 <label for="name"> Social:</label>
                                 <input type="text" name="pro_social" class="form-control"
-                                    placeholder="Insert social link data....">
+                                    placeholder="Insert social link data...."
+                                    value="<?php echo isset($_POST['pro_social']) ? $_POST['pro_social']: ''; ?>">
                             </div>
                             <div class="form-group">
                                 <label for="photo">Photo:</label>
@@ -178,7 +194,7 @@ $profile = new Profile();
                                 value="<?php echo $_SESSION['userSession']; ?>">
 
                             <button type="submit" name="btn-insert" class="btn btn-sm btn-primary">
-                                <i class="fa fa-upload"></i> Insert</button>
+                                <i class="fa fa-upload"></i> Upload</button>
 
                             <a href="profileIndex.php" class="btn btn-sm btn-warning">
                                 <i class="fa fa-fast-backward"></i> Profile Index</a>
