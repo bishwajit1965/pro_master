@@ -38,6 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <title>Login | Pro_master</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Favicon -->
+        <link rel="icon" href="../images/favicon/favicon1.ico" type="image/x-icon" />
         <!-- Bootstrap 3.3.7 -->
         <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
         <!-- Font Awesome -->
@@ -119,35 +121,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Validation messages
                 if (isset($_GET['blankEmail'])) {
                     ?>
-                    <div class='alert alert-danger'>
-                        <button class='close' data-dismiss='alert'>&times;</button>
-                        <strong>SORRY !!! Email field was left blank ! </strong>
-                    </div>
-                    <?php
+                <div class='alert alert-danger'>
+                    <button class='close' data-dismiss='alert'>&times;</button>
+                    <strong>SORRY !!! Email field was left blank ! </strong>
+                </div>
+                <?php
                 }
                 if (isset($_GET['emptyEmail'])) {
                     ?>
-                    <div class='alert alert-danger'>
-                        <button class='close' data-dismiss='alert'>&times;</button>
-                        <strong>SORRY !!! Email address does not match ! </strong>
-                    </div>
-                    <?php
+                <div class='alert alert-danger'>
+                    <button class='close' data-dismiss='alert'>&times;</button>
+                    <strong>SORRY !!! Email address does not match ! </strong>
+                </div>
+                <?php
                 }
                 if (isset($_GET['passwordError'])) {
                     ?>
-                    <div class='alert alert-danger'>
-                        <button class='close' data-dismiss='alert'>&times;</button>
-                        <strong>SORRY !!! Password does not match ! </strong>
-                    </div>
-                    <?php
+                <div class='alert alert-danger'>
+                    <button class='close' data-dismiss='alert'>&times;</button>
+                    <strong>SORRY !!! Password does not match ! </strong>
+                </div>
+                <?php
                 }
                 if (isset($_GET['inactive'])) {
                     ?>
-                    <div class='alert alert-danger'>
-                        <button class='close' data-dismiss='alert'>&times;</button>
-                        <strong>SORRY!!</strong> This Account is not Activated Go to your Inbox and Activate it.
-                    </div>
-                    <?php
+                <div class='alert alert-danger'>
+                    <button class='close' data-dismiss='alert'>&times;</button>
+                    <strong>SORRY!!</strong> This Account is not Activated Go to your Inbox and Activate it.
+                </div>
+                <?php
                 }
                 ?>
                 <form action="" method="post" id="login-form">

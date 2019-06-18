@@ -1,261 +1,167 @@
-<?php include_once 'views/partials/_head.php'; ?>
+<!doctype html>
+<html lang="en">
 
-<body>
-    <div class="container-fluid">
-        <?php include_once 'views/partials/_topHeader.php';?>
-        <nav class="row navbar px-5 navbar-expand-lg navbar-dark bg-dark" id="navbar">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Favicon -->
+        <link rel="icon" href="views/images/favicon/favicon.ico" type="image/x-icon" />
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- <link rel="stylesheet" href="views/lib/bootstrap-4.3.1/dist/css/bootstrap.min.css"> -->
+        <link rel="stylesheet" href="views/lib/css/responsive.css">
+        <link rel="stylesheet" href="views/lib/css/frontend.css">
+        <style>
+            input[type=text] {
+                width: 130px;
+                box-sizing: border-box;
+                border: 2px solid #ccc;
+                border-radius: 4px;
+                font-size: 16px;
+                background-color: white;
+                background-image: url('views/images/logo/search6.png');
+                background-position: 10px 10px;
+                background-repeat: no-repeat;
+                padding: 10px 10px 10px 40px;
+                -webkit-transition: width 0.4s ease-in-out;
+                transition: width 0.4s ease-in-out;
+            }
+
+            input[type=text]:focus {
+                width: 100%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!--### Code below ###-->
+
+        <!-- Jumbtron header area-->
+        <div class="container-fluid text-center header-background py-5">
+            <h1>My First Bootstrap 4 Page</h1>
+            <p>Resize this responsive page to see the effect!</p>
+        </div>
+        <!-- ./Jumbtron header area-->
+
+
+        <!-- Nav bar area-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto ">
+                    <li class="nav-item active">
                         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="#">Accordion</a>
-                    </li>
-                    <!-- Dropdowns -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#news">News</a></li>
-                    <li class="nav-item dropdown">
-                        <a href="javascript:void(0)" class="dropbtn">Dropdown</a>
-                        <div class="dropdown-content">
-                            <a class="nav-link" href="#">Link 1</a>
-                            <a class="nav-link" href="#">Link 2</a>
-                            <a class="nav-link" href="#">Link 3</a>
-                        </div>
+                        <a class="nav-link" href="#">Link</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="#" class="dropbtn">Dropdown</a>
-                        <div class="dropdown-content">
-                            <a class="nav-link" href="#">Link 1</a>
-                            <a class="nav-link" href="#">Link 2</a>
-                            <a class="nav-link" href="#">Link 3</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
                         </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                     </li>
                 </ul>
+
+                ​<form>
+                    <input type="text" name="search" placeholder="Search..">
+                </form>
+
             </div>
         </nav>
-        <div class="row">
-            <button class="accordion px-5">Links</button>
-            <div class="panel pl-5">
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae aliquam ducimus quos tempora,
-                    dolor illum facilis, ea explicabo doloremque aliquid quo blanditiis aut qui voluptatem ratione
-                    exercitationem accusantium. Minus rerum amet odio quo hic a consequuntur modi doloribus earum.
-                    Cumque dicta minus nulla nam ducimus aliquid perferendis reprehenderit culpa at blanditiis maiores
-                    veniam, quos laboriosam expedita voluptatum quidem porro eius sunt doloremque alias aut! Soluta nemo
-                    ducimus expedita eius inventore deserunt vel, vitae ad ipsum, illum officiis harum! Impedit nobis
-                    dolor illo! Accusantium pariatur, culpa laudantium est ducimus ipsam officiis veniam! Ipsa corporis
-                    doloremque numquam maiores quam et, dolorem natus?
-                </p>
+        <!-- ./Nav bar area-->
+
+
+        <!-- Main content -container- area-->
+        <div class="container">
+            <div class="row">
+                <!-- Left sidebar area-->
+                <div class="col-sm-3">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem aut repellendus molestias hic
+                    nisi, suscipit, deleniti voluptatibus ipsa consequatur ex facere itaque repudiandae exercitationem
+                    distinctio enim dolore nostrum tempore magni minima vitae tenetur quidem magnam quod quisquam.
+                    Deleniti, quas quos. Error doloremque itaque, quisquam cum laudantium at omnis amet blanditiis?
+                </div><!-- ./Left sidebar area-->
+
+                <!-- Middle content area -->
+                <div class="col-sm-6">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil perferendis deserunt amet
+                    facilis recusandae nisi quasi delectus. Eligendi magni quod doloribus expedita aliquid ab
+                    voluptatibus accusamus fugiat ipsum, rem, in, et vero voluptatem iste. Id accusamus unde ut omnis
+                    qui, minima iste ipsam tempora veniam at sunt ducimus minus, consequatur dolorem! Dolorem ad
+                    praesentium vel est ipsum, ratione iusto natus dicta similique sequi, sunt veniam ut perferendis
+                    ipsam voluptas officia? Fugiat consequatur vero distinctio unde maxime esse blanditiis voluptates id
+                    corporis sed quas nihil ratione nam voluptas optio commodi quidem, adipisci minus reprehenderit
+                    praesentium enim eaque! Nisi eligendi nesciunt tempore quibusdam, modi illum consectetur. Delectus
+                    aspernatur fuga blanditiis, molestias, similique, eius dolor possimus iste fugiat necessitatibus
+                    quod? Praesentium facilis officia animi vero earum doloremque dolorum dignissimos aliquam molestiae
+                    asperiores quis eius atque quas officiis assumenda ad, error nisi culpa dolor recusandae, optio
+                    quidem quos autem? Est excepturi quam a fugit molestias facilis at harum nobis dolores rerum quos
+                    culpa provident laborum esse, assumenda asperiores ipsam aperiam. Suscipit officia eveniet at
+                    magnam, quo quibusdam consequatur dolores et. Vel voluptatibus sunt exercitationem earum natus sit
+                    enim placeat hic veritatis nulla, a eos ipsa obcaecati ex ducimus labore maxime nemo vitae quis.
+                </div><!-- ./Middle content area -->
+
+                <!-- Right sidebar area -->
+                <div class="col-sm-3">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora debitis vel magnam quisquam dolor,
+                    sint enim? Natus explicabo error culpa at officia recusandae minima. Odit officia unde porro odio
+                    dicta excepturi, velit quis, fugiat nesciunt dolorem magni aliquid at. Quis repellendus minus illum
+                    odit adipisci officia, porro laboriosam perferendis obcaecati.
+                </div> <!-- ./Right sidebar area -->
             </div>
         </div>
-        <?php include_once 'views/partials/_topHeader.php';?>
-        <?php include_once 'views/partials/_header.php';?>
-        <?php include_once 'views/partials/_bottomHeader.php';?>
+        <!-- ./Main content -container- area-->
 
-        <div class="row">
-            <?php include_once 'views/partials/_leftSidebar.php'; ?>
-            <div class="col-sm-6 middle py-2 card" data-spy="scroll" data-target=".navbar" data-offset="0">
-                <!-- Add code below for middle content area-->
-                <div class="bar bg-dark text-white p-2">
-                    <h4>Article Posts</h4>
-                </div>
-                <section id="post-section">
 
-                    <div class="row">
-                        <div class="col-sm-12 mb-3">
-                            <h2>First post title</h2>
-                            <div class="post-details">
-                                <span>Author : Bishwajit paul</span> ||
-                                <span>Published on: 09 December 2018 11.00 pm</span> ||
-                                Cat: <span class="badge badge-pill badge-primary"><a href="">PHP</a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <img style="width:; height:110px;" src="views/images/slider_images/banner1.jpg"
-                                alt="Post image" class="img-fluid">
-                        </div>
-                        <div class="col-sm-8">
-                            <p>Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Officia vitae officiis
-                                recusandae quod laudantium doloremque aut
-                                repudiandae aliquid totam unde deserunt magni
-                                rerum vel, sapiente facilis rem expedita est
-                                reiciendis.</p>
-                            <div class="read-more d-flex justify-content-end">
-                                <a href="" class="btn btn-sm btn-primary ">Read more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-sm-12 mb-3">
-                            <h2>First post title</h2>
-                            <div class="post-details">
-                                <span>Author : Bishwajit paul</span> ||
-                                <span>Published on: 09 December 2018 11.00 pm</span> ||
-                                Cat: <span class="badge badge-pill badge-primary"><a href="">PHP</a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <img style="width:; height:110px;" src="views/images/slider_images/banner1.jpg"
-                                alt="Post image" class="img-fluid">
-                        </div>
-                        <div class="col-sm-8">
-                            <p>Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Officia vitae officiis
-                                recusandae quod laudantium doloremque aut
-                                repudiandae aliquid totam unde deserunt magni
-                                rerum vel, sapiente facilis rem expedita est
-                                reiciendis.</p>
 
-                            <div class="read-more d-flex justify-content-end">
-                                <a href="" class="btn btn-sm btn-primary ">Read
-                                    more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                     <div class="row">
-                        <div class="col-sm-12 mb-3">
-                            <h2>First post title</h2>
-                            <div class="post-details">
-                                <span>Author : Bishwajit paul</span> ||
-                                <span>Published on: 09 December 2018 11.00 pm</span> ||
-                                Cat: <span class="badge badge-pill badge-primary"><a href="">PHP</a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <img style="width:; height:110px;" src="views/images/slider_images/banner1.jpg"
-                                alt="Post image" class="img-fluid">
-                        </div>
-                        <div class="col-sm-8">
-                            <p>Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Officia vitae officiis
-                                recusandae quod laudantium doloremque aut
-                                repudiandae aliquid totam unde deserunt magni
-                                rerum vel, sapiente facilis rem expedita est
-                                reiciendis.</p>
-                            <div class="read-more d-flex justify-content-end">
-                                <a href="" class="btn btn-sm btn-primary ">Read more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                     <div class="row">
-                        <div class="col-sm-12 mb-3">
-                            <h2>First post title</h2>
-                            <div class="post-details">
-                                <span>Author : Bishwajit paul</span> ||
-                                <span>Published on: 09 December 2018 11.00 pm</span> ||
-                                Cat: <span class="badge badge-pill badge-primary"><a href="">PHP</a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <img style="width:; height:110px;" src="views/images/slider_images/banner1.jpg"
-                                alt="Post image" class="img-fluid">
-                        </div>
-                        <div class="col-sm-8">
-                            <p>Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Officia vitae officiis
-                                recusandae quod laudantium doloremque aut
-                                repudiandae aliquid totam unde deserunt magni
-                                rerum vel, sapiente facilis rem expedita est
-                                reiciendis.</p>
-                            <div class="read-more d-flex justify-content-end">
-                                <a href="" class="btn btn-sm btn-primary ">Read more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                </section>
-
-                <!-- Pagination -->
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item disabled">
-                        <span class="page-link">Previous</span>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">1</a></li>
-                        <li class="page-item active" aria-current="page">
-                        <span class="page-link"> 2
-                            <span class="sr-only">(current)</span>
-                        </span>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                        </li>
-                    </ul>
-                </nav>
-                <!-- ./Pagination -->
-                <?php
-                    require_once '../admin/app/start.php';
-                ?>
-                <!-- /Add code above for middle content area-->
-            </div>
-            <?php include_once 'views/partials/_rightSidebar.php'; ?>
+        <!-- Footer area-->
+        <div class="container-fluid text-center footer px-5 py-5 bg-info" style="margin-bottom:0">
+            <p>Footer</p>
         </div>
-        <?php include_once 'views/partials/_footer.php'; ?>
-        <?php include_once 'views/partials/_footerBottom.php'; ?>
-    </div>
-    <?php include_once 'views/partials/_scripts.php'; ?>
-    <!-- Sticky navbar -->
-    <script>
-        window.onscroll = function() {
-            myFunction()
-        };
-        var navbar = document.getElementById("navbar");
-        var sticky = navbar.offsetTop;
+        <!--./ Footer area-->
+        <!-- Footer bar -->
+        <div class="container-fluid footer-bar px-5 bg-dark py-2">
 
-        function myFunction() {
-            if (window.pageYOffset >= sticky) {
-                navbar.classList.add("sticky")
-            } else {
-                navbar.classList.remove("sticky");
-            }
-        }
-    </script>
-    <!-- Accordion -->
-    <script>
-        var acc = document.getElementsByClassName("accordion");
-        var i;
+        </div>
+        <!-- ./Footer bar -->
 
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
-                if (panel.style.display === "block") {
-                    panel.style.display = "none";
-                } else {
-                    panel.style.display = "block";
-                }
-            });
-        }
-    </script>
-</body>
+
+        <!-- ### Code above ### -->
+
+        <!--Optional JavaScript - jQuery first, then Popper.js, then Bootstrap JS -->
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
+        <!-- <script src="views/lib/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="views/lib/js/popper.min.js"></script>
+        <script src="views/lib/bootstrap-4.3.1/dist/js/bootstrap.min.js">
+        </script> -->
+    </body>
 
 </html>
