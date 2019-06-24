@@ -5,7 +5,7 @@
              <ul class="nav justify-content-center">
                  <li class="nav-item">
                      <a href="#">
-                         <img src="img/logo/images21.png" alt="Logo">
+                         <img src="../img/logo/images21.png" alt="Logo">
                      </a>
                  </li>
              </ul>
@@ -58,9 +58,7 @@
                  <p class="info-text"><i class="fas fa-address-card"></i> https://www.nmc.edu.bd</p>
                  <p class="info-text"><i class="fas fa-phone"></i> +88 01712809279</p>
                  <p class="info-text"><i class="fas fa-envelope"></i> paul.bishwajit09@gmail.com</p>
-
              </div>
-
          </div>
      </div>
  </div>

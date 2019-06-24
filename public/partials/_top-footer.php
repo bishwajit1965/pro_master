@@ -15,7 +15,7 @@
                 <a href=""><i class="fab fa-github"></i></a>
             </div>
             <div class="facebook justify-content-around">
-                <img src="img/logo/facebookProfile.jpg" class="img-fluid img-thumbnail" alt="Facebook">
+                <img src="../img/logo/facebookProfile.jpg" class="img-fluid img-thumbnail" alt="Facebook">
             </div>
         </div>
     </div>
