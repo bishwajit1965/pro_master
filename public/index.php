@@ -27,7 +27,7 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
     <![endif]-->
 
-        <!--### Code below ###-->
+        <!--### Add your site or application conten below ###-->
 
         <!--  Header background area-->
         <div class="container-fluid  header-background">
@@ -147,48 +147,125 @@
                 ​<form class="search-box">
                     <input type="text" name="search" placeholder="Search..">
                 </form>
-
             </div>
         </nav>
         <!-- ./Nav bar area-->
 
         <!-- Main content -container- area-->
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
                 <!-- Left sidebar area-->
-                <div class="col-sm-3 left-sidebar bg-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem aut repellendus molestias hic
-                    nisi, suscipit, deleniti voluptatibus ipsa consequatur ex facere itaque repudiandae exercitationem
-                    distinctio enim dolore nostrum tempore magni minima vitae tenetur quidem magnam quod quisquam.
-                    Deleniti, quas quos. Error doloremque itaque, quisquam cum laudantium at omnis amet blanditiis?
-                </div><!-- ./Left sidebar area-->
+                <?php include_once 'partials/_left-sidebar.php';?>
+                <!-- ./Left sidebar area-->
 
                 <!-- Middle content area -->
-                <div class="col-sm-6 content-area">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil perferendis deserunt amet
-                    facilis recusandae nisi quasi delectus. Eligendi magni quod doloribus expedita aliquid ab
-                    voluptatibus accusamus fugiat ipsum, rem, in, et vero voluptatem iste. Id accusamus unde ut omnis
-                    qui, minima iste ipsam tempora veniam at sunt ducimus minus, consequatur dolorem! Dolorem ad
-                    praesentium vel est ipsum, ratione iusto natus dicta similique sequi, sunt veniam ut perferendis
-                    ipsam voluptas officia? Fugiat consequatur vero distinctio unde maxime esse blanditiis voluptates id
-                    corporis sed quas nihil ratione nam voluptas optio commodi quidem, adipisci minus reprehenderit
-                    praesentium enim eaque! Nisi eligendi nesciunt tempore quibusdam, modi illum consectetur. Delectus
-                    aspernatur fuga blanditiis, molestias, similique, eius dolor possimus iste fugiat necessitatibus
-                    quod? Praesentium facilis officia animi vero earum doloremque dolorum dignissimos aliquam molestiae
-                    asperiores quis eius atque quas officiis assumenda ad, error nisi culpa dolor recusandae, optio
-                    quidem quos autem? Est excepturi quam a fugit molestias facilis at harum nobis dolores rerum quos
-                    culpa provident laborum esse, assumenda asperiores ipsam aperiam. Suscipit officia eveniet at
-                    magnam, quo quibusdam consequatur dolores et. Vel voluptatibus sunt exercitationem earum natus sit
-                    enim placeat hic veritatis nulla, a eos ipsa obcaecati ex ducimus labore maxime nemo vitae quis.
+                <div class="col-sm-6 content-area  bg-white pt-3">
+                    <div class="single-post mb-4">
+                        <div class="post-details mb-3">
+                            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+                            <small>Author: Bishwajit Paul</small> ||
+                            <small>Published on: 16 June, 2019, 12.00 pm</small> ||
+                            <small>Category: </small> <span class="badge badge-secondary"><a href=""> PHP</a> </span>
+                        </div>
+                        <div class="post-image mb-3">
+                            <img src="img/slider_images/banner-img-8.jpg" class="img-fluid rounded" alt="Post Image">
+                        </div>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil perferendis deserunt
+                            amet facilis recusandae nisi quasi delectus. Eligendi magni quod doloribus expedita aliquid ab
+                            voluptatibus accusamus fugiat ipsum, rem, in, et vero voluptatem iste. Id accusamus unde ut
+                            omnis...
+                        </p>
+                        <div class="read-more-button d-flex justify-content-end">
+                            <a href="" class="btn btn-sm btn-primary"><i class="fas fa-book-open"></i> Rear more</a>
+                        </div>
+                        <hr class="type_7">
+                    </div>
+                    <div class="single-post mb-4">
+                        <div class="post-details mb-3">
+                            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+                            <small>Author: Bishwajit Paul</small> ||
+                            <small>Published on: 16 June, 2019, 12.00 pm</small> ||
+                            <small>Category: </small> <span class="badge badge-secondary"><a href=""> PHP</a> </span>
+                        </div>
+                        <div class="post-image mb-3">
+                            <img src="img/slider_images/banner1.jpg" class="img-fluid rounded" alt="Post Image">
+                        </div>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil perferendis deserunt
+                            amet facilis recusandae nisi quasi delectus. Eligendi magni quod doloribus expedita aliquid ab
+                            voluptatibus accusamus fugiat ipsum, rem, in, et vero voluptatem iste. Id accusamus unde ut
+                            omnis...
+                        </p>
+                        <div class="read-more-button d-flex justify-content-end">
+                            <a href="" class="btn btn-sm btn-primary"><i class="fas fa-book-open"></i> Rear more</a>
+                        </div>
+                        <hr class="type_7">
+                    </div>
+                    <div class="single-post mb-4">
+                        <div class="post-details mb-3">
+                            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+                            <small>Author: Bishwajit Paul</small> ||
+                            <small>Published on: 16 June, 2019, 12.00 pm</small> ||
+                            <small>Category: </small> <span class="badge badge-secondary"><a href=""> PHP</a> </span>
+                        </div>
+                        <div class="post-image mb-3">
+                            <img src="img/slider_images/banner2.jpg" class="img-fluid rounded" alt="Post Image">
+                        </div>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil perferendis deserunt
+                            amet facilis recusandae nisi quasi delectus. Eligendi magni quod doloribus expedita aliquid ab
+                            voluptatibus accusamus fugiat ipsum, rem, in, et vero voluptatem iste. Id accusamus unde ut
+                            omnis...
+                        </p>
+                        <div class="read-more-button d-flex justify-content-end">
+                            <a href="" class="btn btn-sm btn-primary"><i class="fas fa-book-open"></i> Rear more</a>
+                        </div>
+                        <hr class="type_7">
+                    </div>
+                    <div class="single-post mb-4">
+                        <div class="post-details mb-3">
+                            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+                            <small>Author: Bishwajit Paul</small> ||
+                            <small>Published on: 16 June, 2019, 12.00 pm</small> ||
+                            <small>Category: </small> <span class="badge badge-secondary"><a href=""> PHP</a> </span>
+                        </div>
+                        <div class="post-image mb-3">
+                            <img src="img/slider_images/banner3.jpg" class="img-fluid rounded" alt="Post Image">
+                        </div>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil perferendis deserunt
+                            amet facilis recusandae nisi quasi delectus. Eligendi magni quod doloribus expedita aliquid ab
+                            voluptatibus accusamus fugiat ipsum, rem, in, et vero voluptatem iste. Id accusamus unde ut
+                            omnis...
+                        </p>
+                        <div class="read-more-button d-flex justify-content-end">
+                            <a href="" class="btn btn-sm btn-primary"><i class="fas fa-book-open"></i> Rear more</a>
+                        </div>
+                        <hr class="type_7">
+                    </div>
+
+                    <!-- Pagination -->
+                    <nav aria-label="...">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li><li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav><!--./ Pagination -->
+
                 </div><!-- ./Middle content area -->
 
                 <!-- Right sidebar area -->
-                <div class="col-sm-3 rght-sidebar bg-light">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora debitis vel magnam quisquam dolor,
-                    sint enim? Natus explicabo error culpa at officia recusandae minima. Odit officia unde porro odio
-                    dicta excepturi, velit quis, fugiat nesciunt dolorem magni aliquid at. Quis repellendus minus illum
-                    odit adipisci officia, porro laboriosam perferendis obcaecati.
-                </div><!-- ./Right sidebar area -->
+                <?php include_once 'partials/_right-sidebar.php';?>
+                <!-- ./Right sidebar area -->
             </div>
         </div>
         <!-- ./Main content -container- area-->
@@ -216,15 +293,16 @@
                 </div>
             </div>
         </div>
-
         <!--./ Footer area-->
 
         <!-- Footer bar -->
         <div class="container-fluid footer-bar px-5 bg-dark  py-2 text-white d-flex justify-content-center">
             &copy; 2019 All rights reserved to WWW.laraland.com.
         </div>
-
         <!-- ./Footer bar -->
+
+
+        <!-- ### Add your site or application conten above ### -->
 
         <!-- Scripts -->
         <!--Optional JavaScript - jQuery first, then Popper.js, then Bootstrap JS -->
@@ -237,8 +315,6 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
         </script>
-
-        <!-- Add your site or application content here -->
 
         <script src="js/vendor/modernizr-3.7.1.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -279,11 +355,7 @@
             ga('send', 'pageview')
         </script>
         <script src="https://www.google-analytics.com/analytics.js" async></script>
-
         <!-- ./Scripts -->
-
-        <!-- ### Code above ### -->
-
     </body>
 
 </html>
