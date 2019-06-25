@@ -1,6 +1,22 @@
 <div class="col-sm-3 rght-sidebar bg-white pt-3">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora debitis vel magnam quisquam dolor,
-    sint enim? Natus explicabo error culpa at officia recusandae minima. Odit officia unde porro odio
-    dicta excepturi, velit quis, fugiat nesciunt dolorem magni aliquid at. Quis repellendus minus illum
-    odit adipisci officia, porro laboriosam perferendis obcaecati.
+    <div class="top-bar p-1 text-white">
+        <h2>Category list</h2>
+    </div>
+   <ul>
+       <li><a href="">HTML</a></li>
+       <li><a href="">JAVASCRIPT</a></li>
+       <li><a href="">PHP</a></li>
+       <li><a href="">JQUERY</a></li>
+       <li><a href="">MYSQL</a></li>
+   </ul>
+   <div class="top-bar p-1 text-white">
+        <h2>Tag list</h2>
+    </div>
+   <ul>
+       <li><a href="">HTML</a></li>
+       <li><a href="">JAVASCRIPT</a></li>
+       <li><a href="">PHP</a></li>
+       <li><a href="">JQUERY</a></li>
+       <li><a href="">MYSQL</a></li>
+   </ul>
 </div>

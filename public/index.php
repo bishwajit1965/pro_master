@@ -152,7 +152,8 @@
         <!-- ./Nav bar area-->
 
         <!-- Main content -container- area-->
-        <div class="container">
+
+        <div class="container-fluid">
             <div class="row">
                 <!-- Left sidebar area-->
                 <?php include_once 'partials/_left-sidebar.php';?>
@@ -160,21 +161,24 @@
 
                 <!-- Middle content area -->
                 <div class="col-sm-6 content-area  bg-white pt-3">
+                    <div class="top-bar p-1 text-white">
+                        <h2>Latest blog posts view</h2>
+                    </div>
                     <div class="single-post mb-4">
                         <div class="post-details mb-3">
                             <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
                             <small>Author: Bishwajit Paul</small> ||
                             <small>Published on: 16 June, 2019, 12.00 pm</small> ||
-                            <small>Category: </small> <span class="badge badge-secondary"><a href=""> PHP</a> </span>
+                            <small>Category: </small> <span class="badge badge-secondary"><a href=""> PHP</a>
+                            </span>
                         </div>
                         <div class="post-image mb-3">
                             <img src="img/slider_images/banner-img-8.jpg" class="img-fluid rounded" alt="Post Image">
                         </div>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil perferendis deserunt
-                            amet facilis recusandae nisi quasi delectus. Eligendi magni quod doloribus expedita aliquid ab
-                            voluptatibus accusamus fugiat ipsum, rem, in, et vero voluptatem iste. Id accusamus unde ut
-                            omnis...
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil perferendis
+                            deserunt amet facilis recusandae nisi quasi delectus. Eligendi magni quod doloribus expedita aliquid ab
+                            voluptatibus accusamus fugiat ipsum, rem, in, et vero voluptatem iste. Id voluptatibus accusamus fugiat ipsuma ccusamus unde ut omnis voluptatibus accusamus fugiat ipsum...
                         </p>
                         <div class="read-more-button d-flex justify-content-end">
                             <a href="" class="btn btn-sm btn-primary"><i class="fas fa-book-open"></i> Rear more</a>
@@ -186,16 +190,16 @@
                             <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
                             <small>Author: Bishwajit Paul</small> ||
                             <small>Published on: 16 June, 2019, 12.00 pm</small> ||
-                            <small>Category: </small> <span class="badge badge-secondary"><a href=""> PHP</a> </span>
+                            <small>Category: </small> <span class="badge badge-secondary"><a href=""> PHP</a>
+                            </span>
                         </div>
                         <div class="post-image mb-3">
                             <img src="img/slider_images/banner1.jpg" class="img-fluid rounded" alt="Post Image">
                         </div>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil perferendis deserunt
-                            amet facilis recusandae nisi quasi delectus. Eligendi magni quod doloribus expedita aliquid ab
-                            voluptatibus accusamus fugiat ipsum, rem, in, et vero voluptatem iste. Id accusamus unde ut
-                            omnis...
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil perferendis
+                            deserunt amet facilis recusandae nisi quasi delectus. Eligendi magni quod doloribus expedita aliquid ab
+                            voluptatibus accusamus fugiat ipsum, rem, in, et vero voluptatem iste. Id voluptatibus accusamus fugiat ipsuma ccusamus unde ut omnis voluptatibus accusamus fugiat ipsum...
                         </p>
                         <div class="read-more-button d-flex justify-content-end">
                             <a href="" class="btn btn-sm btn-primary"><i class="fas fa-book-open"></i> Rear more</a>
@@ -207,16 +211,16 @@
                             <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
                             <small>Author: Bishwajit Paul</small> ||
                             <small>Published on: 16 June, 2019, 12.00 pm</small> ||
-                            <small>Category: </small> <span class="badge badge-secondary"><a href=""> PHP</a> </span>
+                            <small>Category: </small> <span class="badge badge-secondary"><a href=""> PHP</a>
+                            </span>
                         </div>
                         <div class="post-image mb-3">
                             <img src="img/slider_images/banner2.jpg" class="img-fluid rounded" alt="Post Image">
                         </div>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil perferendis deserunt
-                            amet facilis recusandae nisi quasi delectus. Eligendi magni quod doloribus expedita aliquid ab
-                            voluptatibus accusamus fugiat ipsum, rem, in, et vero voluptatem iste. Id accusamus unde ut
-                            omnis...
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil perferendis
+                            deserunt amet facilis recusandae nisi quasi delectus. Eligendi magni quod doloribus expedita aliquid ab
+                            voluptatibus accusamus fugiat ipsum, rem, in, et vero voluptatem iste. Id voluptatibus accusamus fugiat ipsuma ccusamus unde ut omnis voluptatibus accusamus fugiat ipsum...
                         </p>
                         <div class="read-more-button d-flex justify-content-end">
                             <a href="" class="btn btn-sm btn-primary"><i class="fas fa-book-open"></i> Rear more</a>
@@ -228,16 +232,16 @@
                             <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
                             <small>Author: Bishwajit Paul</small> ||
                             <small>Published on: 16 June, 2019, 12.00 pm</small> ||
-                            <small>Category: </small> <span class="badge badge-secondary"><a href=""> PHP</a> </span>
+                            <small>Category: </small> <span class="badge badge-secondary"><a href=""> PHP</a>
+                            </span>
                         </div>
                         <div class="post-image mb-3">
                             <img src="img/slider_images/banner3.jpg" class="img-fluid rounded" alt="Post Image">
                         </div>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil perferendis deserunt
-                            amet facilis recusandae nisi quasi delectus. Eligendi magni quod doloribus expedita aliquid ab
-                            voluptatibus accusamus fugiat ipsum, rem, in, et vero voluptatem iste. Id accusamus unde ut
-                            omnis...
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil perferendis
+                            deserunt amet facilis recusandae nisi quasi delectus. Eligendi magni quod doloribus expedita aliquid ab
+                            voluptatibus accusamus fugiat ipsum, rem, in, et vero voluptatem iste. Id voluptatibus accusamus fugiat ipsuma ccusamus unde ut omnis voluptatibus accusamus fugiat ipsum...
                         </p>
                         <div class="read-more-button d-flex justify-content-end">
                             <a href="" class="btn btn-sm btn-primary"><i class="fas fa-book-open"></i> Rear more</a>
@@ -253,21 +257,25 @@
                             </li>
                             <li class="page-item"><a class="page-link" href="#">1</a></li>
                             <li class="page-item active" aria-current="page">
-                            <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
                             </li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li><li class="page-item">
-                            <a class="page-link" href="#">Next</a>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
                             </li>
                         </ul>
-                    </nav><!--./ Pagination -->
+                    </nav>
+                    <!--./ Pagination -->
 
                 </div><!-- ./Middle content area -->
 
                 <!-- Right sidebar area -->
                 <?php include_once 'partials/_right-sidebar.php';?>
                 <!-- ./Right sidebar area -->
+
             </div>
         </div>
+
         <!-- ./Main content -container- area-->
 
         <!-- Footer area-->
