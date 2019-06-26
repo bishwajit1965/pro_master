@@ -193,8 +193,8 @@ $profile = new Profile();
                             <input type="hidden" name="userID" class="form-control"
                                 value="<?php echo $_SESSION['userSession']; ?>">
 
-                            <button type="submit" name="btn-insert" class="btn btn-sm btn-primary">
-                                <i class="fa fa-upload"></i> Upload</button>
+                            <button type="submit" name="btn-insert" class="btn btn-sm btn-primary"><i
+                                    class="fa fa-upload"></i> Upload</button>
 
                             <a href="profileIndex.php" class="btn btn-sm btn-warning">
                                 <i class="fa fa-fast-backward"></i> Profile Index</a>

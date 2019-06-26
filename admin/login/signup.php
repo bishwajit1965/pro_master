@@ -305,7 +305,6 @@ if (isset($_POST['btn-signup'])) {
                         <input type="text" name="lastName" class="form-control" placeholder="Last name">
                         <span class="glyphicon glyphicon-user form-control-feedback"></span>
                     </div>
-
                     <div class="form-group has-feedback">
                         <input type="text" name="txtemail" class="form-control" placeholder="Email">
                         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>

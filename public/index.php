@@ -161,7 +161,7 @@
 
                 <!-- Middle content area -->
                 <div class="col-sm-6 content-area  bg-white pt-3">
-                    <div class="top-bar p-1 text-white">
+                    <div class="top-bar">
                         <h2>Latest blog posts view</h2>
                     </div>
                     <div class="single-post mb-4">
@@ -177,8 +177,10 @@
                         </div>
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil perferendis
-                            deserunt amet facilis recusandae nisi quasi delectus. Eligendi magni quod doloribus expedita aliquid ab
-                            voluptatibus accusamus fugiat ipsum, rem, in, et vero voluptatem iste. Id voluptatibus accusamus fugiat ipsuma ccusamus unde ut omnis voluptatibus accusamus fugiat ipsum...
+                            deserunt amet facilis recusandae nisi quasi delectus. Eligendi magni quod doloribus expedita
+                            aliquid ab
+                            voluptatibus accusamus fugiat ipsum, rem, in, et vero voluptatem iste. Id voluptatibus
+                            accusamus fugiat ipsuma ccusamus unde ut omnis voluptatibus accusamus fugiat ipsum...
                         </p>
                         <div class="read-more-button d-flex justify-content-end">
                             <a href="" class="btn btn-sm btn-primary"><i class="fas fa-book-open"></i> Rear more</a>
@@ -198,8 +200,10 @@
                         </div>
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil perferendis
-                            deserunt amet facilis recusandae nisi quasi delectus. Eligendi magni quod doloribus expedita aliquid ab
-                            voluptatibus accusamus fugiat ipsum, rem, in, et vero voluptatem iste. Id voluptatibus accusamus fugiat ipsuma ccusamus unde ut omnis voluptatibus accusamus fugiat ipsum...
+                            deserunt amet facilis recusandae nisi quasi delectus. Eligendi magni quod doloribus expedita
+                            aliquid ab
+                            voluptatibus accusamus fugiat ipsum, rem, in, et vero voluptatem iste. Id voluptatibus
+                            accusamus fugiat ipsuma ccusamus unde ut omnis voluptatibus accusamus fugiat ipsum...
                         </p>
                         <div class="read-more-button d-flex justify-content-end">
                             <a href="" class="btn btn-sm btn-primary"><i class="fas fa-book-open"></i> Rear more</a>
@@ -219,8 +223,10 @@
                         </div>
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil perferendis
-                            deserunt amet facilis recusandae nisi quasi delectus. Eligendi magni quod doloribus expedita aliquid ab
-                            voluptatibus accusamus fugiat ipsum, rem, in, et vero voluptatem iste. Id voluptatibus accusamus fugiat ipsuma ccusamus unde ut omnis voluptatibus accusamus fugiat ipsum...
+                            deserunt amet facilis recusandae nisi quasi delectus. Eligendi magni quod doloribus expedita
+                            aliquid ab
+                            voluptatibus accusamus fugiat ipsum, rem, in, et vero voluptatem iste. Id voluptatibus
+                            accusamus fugiat ipsuma ccusamus unde ut omnis voluptatibus accusamus fugiat ipsum...
                         </p>
                         <div class="read-more-button d-flex justify-content-end">
                             <a href="" class="btn btn-sm btn-primary"><i class="fas fa-book-open"></i> Rear more</a>
@@ -240,8 +246,10 @@
                         </div>
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil perferendis
-                            deserunt amet facilis recusandae nisi quasi delectus. Eligendi magni quod doloribus expedita aliquid ab
-                            voluptatibus accusamus fugiat ipsum, rem, in, et vero voluptatem iste. Id voluptatibus accusamus fugiat ipsuma ccusamus unde ut omnis voluptatibus accusamus fugiat ipsum...
+                            deserunt amet facilis recusandae nisi quasi delectus. Eligendi magni quod doloribus expedita
+                            aliquid ab
+                            voluptatibus accusamus fugiat ipsum, rem, in, et vero voluptatem iste. Id voluptatibus
+                            accusamus fugiat ipsuma ccusamus unde ut omnis voluptatibus accusamus fugiat ipsum...
                         </p>
                         <div class="read-more-button d-flex justify-content-end">
                             <a href="" class="btn btn-sm btn-primary"><i class="fas fa-book-open"></i> Rear more</a>
@@ -283,9 +291,42 @@
             <div class="row">
                 <div class="col-sm-3">
                     <h5>Location</h5>
+                    <div class="googleMap" style="width:100%; height:200px;">
+                        <script>
+                            function myMap() {
+                                var mapProp = {
+                                    center: new google.maps.LatLng(51.508742, -0.120850),
+                                    zoom: 5,
+                                };
+                                var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+                            }
+                        </script>
+
+                        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
+
+                    </div>
+
                 </div>
-                <div class="col-sm-3">One</div>
-                <div class="col-sm-3">One</div>
+                <div class="col-sm-3">
+                    <h5>Recent posts</h5>
+                    <div class="recent-posts">
+                        <div class="post-details">
+                            <h6></h6>
+                            <small>Author: Bishwajit Paul &nbsp;||</small>
+                            <small>Publkished on: 20 May 2019 12.00 PM &nbsp;||</small>
+                            <small>Category: Php</small>
+                        </div>
+                        <div class="recent-post-image">
+                            <img src="img/slider_images/banner5.jpg"
+                                style="width:100px; height:60px;float:left; margin-right:10px;" class="img-fluid"
+                                alt="Recent post image">
+                        </div>
+                        <div class="recent-post-content">
+                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit totam quibusdam illo.
+                            </span>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-sm-3">
                     <h5>Social links</h5>
                     <div class="top-social-links d-flex justify-content-between mb-3">
@@ -296,8 +337,36 @@
                         <a href=""><i class="fab fa-github"></i></a>
                     </div>
                     <div class="facebook justify-content-around">
-                        <img src="img/logo/facebookProfile.jpg" class="img-fluid img-thumbnail" alt="Facebook">
+                        <a href="">
+                            <img src="img/logo/facebookProfile.jpg" class="img-fluid img-thumbnail" alt="Facebook"></a>
                     </div>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Contact us</h5>
+                    <form method="postget" action="">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder=" User name...">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-envelope-square"></i></span>
+                            </div>
+                            <input type="email" class="form-control" placeholder=" User email...">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-envelope-open-text"></i></span>
+                            </div>
+                            <textarea name="" id="name" class="form-control" placeholder=" User message..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-sm btn-secondary"><i class="fas fa-envelope"></i>
+                            Send
+                            message</button>
+                    </form>
                 </div>
             </div>
         </div>
